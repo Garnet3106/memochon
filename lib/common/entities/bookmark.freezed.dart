@@ -14,7 +14,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Bookmark {
 
- String get id; DateTime get createdAt; DateTime get editedAt; String get title; String get url; String get iconUrl; String get thumbnailUrl; List<Hashtag> get hashtags;
+ String get id; DateTime get createdAt; DateTime get editedAt; String get title; String get url; String get thumbnailUrl; List<Hashtag> get hashtags;
 /// Create a copy of Bookmark
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -25,16 +25,16 @@ $BookmarkCopyWith<Bookmark> get copyWith => _$BookmarkCopyWithImpl<Bookmark>(thi
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Bookmark&&(identical(other.id, id) || other.id == id)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.editedAt, editedAt) || other.editedAt == editedAt)&&(identical(other.title, title) || other.title == title)&&(identical(other.url, url) || other.url == url)&&(identical(other.iconUrl, iconUrl) || other.iconUrl == iconUrl)&&(identical(other.thumbnailUrl, thumbnailUrl) || other.thumbnailUrl == thumbnailUrl)&&const DeepCollectionEquality().equals(other.hashtags, hashtags));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Bookmark&&(identical(other.id, id) || other.id == id)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.editedAt, editedAt) || other.editedAt == editedAt)&&(identical(other.title, title) || other.title == title)&&(identical(other.url, url) || other.url == url)&&(identical(other.thumbnailUrl, thumbnailUrl) || other.thumbnailUrl == thumbnailUrl)&&const DeepCollectionEquality().equals(other.hashtags, hashtags));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,id,createdAt,editedAt,title,url,iconUrl,thumbnailUrl,const DeepCollectionEquality().hash(hashtags));
+int get hashCode => Object.hash(runtimeType,id,createdAt,editedAt,title,url,thumbnailUrl,const DeepCollectionEquality().hash(hashtags));
 
 @override
 String toString() {
-  return 'Bookmark(id: $id, createdAt: $createdAt, editedAt: $editedAt, title: $title, url: $url, iconUrl: $iconUrl, thumbnailUrl: $thumbnailUrl, hashtags: $hashtags)';
+  return 'Bookmark(id: $id, createdAt: $createdAt, editedAt: $editedAt, title: $title, url: $url, thumbnailUrl: $thumbnailUrl, hashtags: $hashtags)';
 }
 
 
@@ -45,7 +45,7 @@ abstract mixin class $BookmarkCopyWith<$Res>  {
   factory $BookmarkCopyWith(Bookmark value, $Res Function(Bookmark) _then) = _$BookmarkCopyWithImpl;
 @useResult
 $Res call({
- String id, DateTime createdAt, DateTime editedAt, String title, String url, String iconUrl, String thumbnailUrl, List<Hashtag> hashtags
+ String id, DateTime createdAt, DateTime editedAt, String title, String url, String thumbnailUrl, List<Hashtag> hashtags
 });
 
 
@@ -62,14 +62,13 @@ class _$BookmarkCopyWithImpl<$Res>
 
 /// Create a copy of Bookmark
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? createdAt = null,Object? editedAt = null,Object? title = null,Object? url = null,Object? iconUrl = null,Object? thumbnailUrl = null,Object? hashtags = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? createdAt = null,Object? editedAt = null,Object? title = null,Object? url = null,Object? thumbnailUrl = null,Object? hashtags = null,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime,editedAt: null == editedAt ? _self.editedAt : editedAt // ignore: cast_nullable_to_non_nullable
 as DateTime,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,url: null == url ? _self.url : url // ignore: cast_nullable_to_non_nullable
-as String,iconUrl: null == iconUrl ? _self.iconUrl : iconUrl // ignore: cast_nullable_to_non_nullable
 as String,thumbnailUrl: null == thumbnailUrl ? _self.thumbnailUrl : thumbnailUrl // ignore: cast_nullable_to_non_nullable
 as String,hashtags: null == hashtags ? _self.hashtags : hashtags // ignore: cast_nullable_to_non_nullable
 as List<Hashtag>,
@@ -157,10 +156,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  DateTime createdAt,  DateTime editedAt,  String title,  String url,  String iconUrl,  String thumbnailUrl,  List<Hashtag> hashtags)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  DateTime createdAt,  DateTime editedAt,  String title,  String url,  String thumbnailUrl,  List<Hashtag> hashtags)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Bookmark() when $default != null:
-return $default(_that.id,_that.createdAt,_that.editedAt,_that.title,_that.url,_that.iconUrl,_that.thumbnailUrl,_that.hashtags);case _:
+return $default(_that.id,_that.createdAt,_that.editedAt,_that.title,_that.url,_that.thumbnailUrl,_that.hashtags);case _:
   return orElse();
 
 }
@@ -178,10 +177,10 @@ return $default(_that.id,_that.createdAt,_that.editedAt,_that.title,_that.url,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  DateTime createdAt,  DateTime editedAt,  String title,  String url,  String iconUrl,  String thumbnailUrl,  List<Hashtag> hashtags)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  DateTime createdAt,  DateTime editedAt,  String title,  String url,  String thumbnailUrl,  List<Hashtag> hashtags)  $default,) {final _that = this;
 switch (_that) {
 case _Bookmark():
-return $default(_that.id,_that.createdAt,_that.editedAt,_that.title,_that.url,_that.iconUrl,_that.thumbnailUrl,_that.hashtags);case _:
+return $default(_that.id,_that.createdAt,_that.editedAt,_that.title,_that.url,_that.thumbnailUrl,_that.hashtags);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -198,10 +197,10 @@ return $default(_that.id,_that.createdAt,_that.editedAt,_that.title,_that.url,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  DateTime createdAt,  DateTime editedAt,  String title,  String url,  String iconUrl,  String thumbnailUrl,  List<Hashtag> hashtags)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  DateTime createdAt,  DateTime editedAt,  String title,  String url,  String thumbnailUrl,  List<Hashtag> hashtags)?  $default,) {final _that = this;
 switch (_that) {
 case _Bookmark() when $default != null:
-return $default(_that.id,_that.createdAt,_that.editedAt,_that.title,_that.url,_that.iconUrl,_that.thumbnailUrl,_that.hashtags);case _:
+return $default(_that.id,_that.createdAt,_that.editedAt,_that.title,_that.url,_that.thumbnailUrl,_that.hashtags);case _:
   return null;
 
 }
@@ -213,7 +212,7 @@ return $default(_that.id,_that.createdAt,_that.editedAt,_that.title,_that.url,_t
 
 
 class _Bookmark extends Bookmark {
-  const _Bookmark({required this.id, required this.createdAt, required this.editedAt, required this.title, required this.url, required this.iconUrl, required this.thumbnailUrl, required final  List<Hashtag> hashtags}): _hashtags = hashtags,super._();
+  const _Bookmark({required this.id, required this.createdAt, required this.editedAt, required this.title, required this.url, required this.thumbnailUrl, required final  List<Hashtag> hashtags}): _hashtags = hashtags,super._();
   
 
 @override final  String id;
@@ -221,7 +220,6 @@ class _Bookmark extends Bookmark {
 @override final  DateTime editedAt;
 @override final  String title;
 @override final  String url;
-@override final  String iconUrl;
 @override final  String thumbnailUrl;
  final  List<Hashtag> _hashtags;
 @override List<Hashtag> get hashtags {
@@ -241,16 +239,16 @@ _$BookmarkCopyWith<_Bookmark> get copyWith => __$BookmarkCopyWithImpl<_Bookmark>
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Bookmark&&(identical(other.id, id) || other.id == id)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.editedAt, editedAt) || other.editedAt == editedAt)&&(identical(other.title, title) || other.title == title)&&(identical(other.url, url) || other.url == url)&&(identical(other.iconUrl, iconUrl) || other.iconUrl == iconUrl)&&(identical(other.thumbnailUrl, thumbnailUrl) || other.thumbnailUrl == thumbnailUrl)&&const DeepCollectionEquality().equals(other._hashtags, _hashtags));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Bookmark&&(identical(other.id, id) || other.id == id)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.editedAt, editedAt) || other.editedAt == editedAt)&&(identical(other.title, title) || other.title == title)&&(identical(other.url, url) || other.url == url)&&(identical(other.thumbnailUrl, thumbnailUrl) || other.thumbnailUrl == thumbnailUrl)&&const DeepCollectionEquality().equals(other._hashtags, _hashtags));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,id,createdAt,editedAt,title,url,iconUrl,thumbnailUrl,const DeepCollectionEquality().hash(_hashtags));
+int get hashCode => Object.hash(runtimeType,id,createdAt,editedAt,title,url,thumbnailUrl,const DeepCollectionEquality().hash(_hashtags));
 
 @override
 String toString() {
-  return 'Bookmark(id: $id, createdAt: $createdAt, editedAt: $editedAt, title: $title, url: $url, iconUrl: $iconUrl, thumbnailUrl: $thumbnailUrl, hashtags: $hashtags)';
+  return 'Bookmark(id: $id, createdAt: $createdAt, editedAt: $editedAt, title: $title, url: $url, thumbnailUrl: $thumbnailUrl, hashtags: $hashtags)';
 }
 
 
@@ -261,7 +259,7 @@ abstract mixin class _$BookmarkCopyWith<$Res> implements $BookmarkCopyWith<$Res>
   factory _$BookmarkCopyWith(_Bookmark value, $Res Function(_Bookmark) _then) = __$BookmarkCopyWithImpl;
 @override @useResult
 $Res call({
- String id, DateTime createdAt, DateTime editedAt, String title, String url, String iconUrl, String thumbnailUrl, List<Hashtag> hashtags
+ String id, DateTime createdAt, DateTime editedAt, String title, String url, String thumbnailUrl, List<Hashtag> hashtags
 });
 
 
@@ -278,14 +276,13 @@ class __$BookmarkCopyWithImpl<$Res>
 
 /// Create a copy of Bookmark
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? createdAt = null,Object? editedAt = null,Object? title = null,Object? url = null,Object? iconUrl = null,Object? thumbnailUrl = null,Object? hashtags = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? createdAt = null,Object? editedAt = null,Object? title = null,Object? url = null,Object? thumbnailUrl = null,Object? hashtags = null,}) {
   return _then(_Bookmark(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime,editedAt: null == editedAt ? _self.editedAt : editedAt // ignore: cast_nullable_to_non_nullable
 as DateTime,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,url: null == url ? _self.url : url // ignore: cast_nullable_to_non_nullable
-as String,iconUrl: null == iconUrl ? _self.iconUrl : iconUrl // ignore: cast_nullable_to_non_nullable
 as String,thumbnailUrl: null == thumbnailUrl ? _self.thumbnailUrl : thumbnailUrl // ignore: cast_nullable_to_non_nullable
 as String,hashtags: null == hashtags ? _self._hashtags : hashtags // ignore: cast_nullable_to_non_nullable
 as List<Hashtag>,

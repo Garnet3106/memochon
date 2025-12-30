@@ -13,7 +13,6 @@ abstract class Bookmark with _$Bookmark {
     required DateTime editedAt,
     required String title,
     required String url,
-    required String iconUrl,
     required String thumbnailUrl,
     required List<Hashtag> hashtags,
   }) = _Bookmark;
@@ -26,4 +25,6 @@ abstract class Bookmark with _$Bookmark {
       return 'unknown';
     }
   }
+
+  String get faviconUrl => 'http://www.google.com/s2/favicons?domain=$domain';
 }

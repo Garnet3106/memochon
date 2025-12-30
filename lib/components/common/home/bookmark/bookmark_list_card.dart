@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:memochon/common/constants.dart';
 import 'package:memochon/common/entities/bookmark.dart';
@@ -6,6 +7,8 @@ class BookmarkListCard extends StatelessWidget {
   const BookmarkListCard({super.key, required this.bookmark});
 
   final Bookmark bookmark;
+
+  static const double faviconSize = 23;
 
   @override
   Widget build(BuildContext context) {
@@ -17,22 +20,47 @@ class BookmarkListCard extends StatelessWidget {
       elevation: 2,
       child: Padding(
         padding: .all(LayoutTheme.margin),
-        child: Column(
+        child: Row(
           crossAxisAlignment: .start,
-          spacing: 2,
+          spacing: LayoutTheme.slimMargin,
           children: [
+            CachedNetworkImage(
+              imageUrl: bookmark.faviconUrl,
+              height: faviconSize,
+              width: faviconSize,
+              errorWidget: (context, url, error) => Icon(
+                Icons.bookmark,
+                color: ColorTheme.backgroundTextSecond(brightness),
+                size: faviconSize,
+              ),
+            ),
             Column(
               crossAxisAlignment: .start,
-              spacing: 0,
+              spacing: 2,
               children: [
-                Text(
-                  bookmark.title,
-                  maxLines: 1,
-                  overflow: .ellipsis,
-                  style: TextStyle(fontSize: 16, fontWeight: .bold),
+                Column(
+                  crossAxisAlignment: .start,
+                  spacing: 0,
+                  children: [
+                    Text(
+                      bookmark.title,
+                      maxLines: 1,
+                      overflow: .ellipsis,
+                      style: TextStyle(fontSize: 16, fontWeight: .bold),
+                    ),
+                    Text(
+                      bookmark.domain,
+                      maxLines: 2,
+                      overflow: .ellipsis,
+                      style: TextStyle(
+                        color: ColorTheme.backgroundTextSecond(brightness),
+                        fontSize: 13,
+                      ),
+                    ),
+                  ],
                 ),
                 Text(
-                  bookmark.domain,
+                  bookmark.hashtags.map((tag) => '#${tag.name}').join('  '),
                   maxLines: 2,
                   overflow: .ellipsis,
                   style: TextStyle(
@@ -41,15 +69,6 @@ class BookmarkListCard extends StatelessWidget {
                   ),
                 ),
               ],
-            ),
-            Text(
-              bookmark.hashtags.map((tag) => '#${tag.name}').join('  '),
-              maxLines: 2,
-              overflow: .ellipsis,
-              style: TextStyle(
-                color: ColorTheme.backgroundTextSecond(brightness),
-                fontSize: 13,
-              ),
             ),
           ],
         ),

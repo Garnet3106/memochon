@@ -15,8 +15,7 @@ class BookmarkList extends ConsumerWidget {
       createdAt: DateTime.now(),
       editedAt: DateTime.now(),
       title: 'サンプルブックマークタイトル',
-      url: 'https://example.com',
-      iconUrl: 'https://example.com/favicon.ico',
+      url: 'https://photos.google.com',
       thumbnailUrl: 'https://example.com/thumbnail.jpg',
       hashtags: [
         Hashtag(id: '1', name: 'ニュース'),
