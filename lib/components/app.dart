@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:memochon/router/router.dart';
+import 'package:memochon/common/constants.dart';
 
 class App extends StatelessWidget {
   const App({super.key, required this.initialLocation});
@@ -12,7 +13,10 @@ class App extends StatelessWidget {
 
     return MaterialApp.router(
       title: 'メモちょん',
-      theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
+      theme: AppTheme.light(),
+      darkTheme: AppTheme.dark(),
+      // todo: ユーザー設定に依存する
+      themeMode: ThemeMode.light,
       routerConfig: router,
     );
   }
