@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:memochon/router/router.dart';
+import 'package:memochon/common/router/router.dart';
 import 'package:memochon/common/constants.dart';
 
 class App extends StatelessWidget {

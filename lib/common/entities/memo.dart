@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:memochon/common/entities/hashtag.dart';
 
 part 'memo.freezed.dart';
 
@@ -10,6 +11,6 @@ abstract class Memo with _$Memo {
     required DateTime editedAt,
     required String title,
     required String previewContent,
-    required List<String> hashtags,
+    required List<Hashtag> hashtags,
   }) = _Memo;
 }

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:memochon/common/constants.dart';
-import 'package:memochon/components/common/home/memo_list_card.dart';
-import 'package:memochon/entities/memo.dart';
+import 'package:memochon/common/entities/hashtag.dart';
+import 'package:memochon/components/common/home/memo/memo_list_card.dart';
+import 'package:memochon/common/entities/memo.dart';
 
-class HomeMemoList extends ConsumerWidget {
-  const HomeMemoList({super.key});
+class MemoList extends ConsumerWidget {
+  const MemoList({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -16,7 +17,11 @@ class HomeMemoList extends ConsumerWidget {
       title: 'サンプルメモタイトル',
       previewContent:
           'これはサンプルのメモのプレビューコンテンツです。これはサンプルのメモのプレビューコンテンツです。これはサンプルのメモのプレビューコンテンツです。',
-      hashtags: ['日記', '旅行記', '日常生活', 'アイデア', 'また行きたいお店'],
+      hashtags: [
+        Hashtag(id: '1', name: '日記'),
+        Hashtag(id: '2', name: '旅行記'),
+        Hashtag(id: '3', name: 'また行きたいお店'),
+      ],
     );
 
     return ListView.builder(

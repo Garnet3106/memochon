@@ -32,7 +32,7 @@ abstract final class ColorTheme {
   static const Color darkBackground = Colors.white;
 
   // 濃い背景塗り
-  static const Color lightBackgroundSecond = Color(0xffeeeeee);
+  static const Color lightBackgroundSecond = Color(0xfff9f9f9);
   static const Color darkBackgroundSecond = Colors.white;
 
   // 背景テキスト

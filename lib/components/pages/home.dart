@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:memochon/components/common/app_bar.dart';
-import 'package:memochon/components/common/home/memo.dart';
+import 'package:memochon/components/common/home/bookmark/bookmark_list.dart';
+import 'package:memochon/components/common/home/list_tab.dart';
+import 'package:memochon/components/common/home/memo/memo_list.dart';
 
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});
@@ -35,7 +37,14 @@ class _HomePageState extends ConsumerState<HomePage>
       ),
       body: TabBarView(
         controller: _tabController,
-        children: [HomeMemo(), HomeMemo(), HomeMemo()],
+        children: [
+          HomeListTab(searchBarPlaceholder: 'メモを検索する', child: MemoList()),
+          HomeListTab(
+            searchBarPlaceholder: 'ブックマークを検索する',
+            child: BookmarkList(),
+          ),
+          HomeListTab(searchBarPlaceholder: 'メディアを検索する', child: MemoList()),
+        ],
       ),
     );
   }

@@ -1,5 +1,5 @@
 import 'package:go_router/go_router.dart';
-import 'package:memochon/router/routes.dart';
+import 'package:memochon/common/router/routes.dart';
 
 GoRouter createRouter({required String initialLocation}) {
   return GoRouter(

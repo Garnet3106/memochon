@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:memochon/common/constants.dart';
-import 'package:memochon/entities/memo.dart';
+import 'package:memochon/common/entities/memo.dart';
 
 class MemoListCard extends StatelessWidget {
   const MemoListCard({super.key, required this.memo});
@@ -29,10 +29,13 @@ class MemoListCard extends StatelessWidget {
             ),
             Text(memo.previewContent, maxLines: 2, overflow: .ellipsis),
             Text(
-              memo.hashtags.map((tag) => '#$tag').join('  '),
+              memo.hashtags.map((tag) => '#${tag.name}').join('  '),
               maxLines: 1,
               overflow: .ellipsis,
-              style: TextStyle(fontSize: 13),
+              style: TextStyle(
+                color: ColorTheme.backgroundTextSecond(brightness),
+                fontSize: 13,
+              ),
             ),
           ],
         ),

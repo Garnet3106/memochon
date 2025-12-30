@@ -14,7 +14,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Memo {
 
- String get id; DateTime get createdAt; DateTime get editedAt; String get title; String get previewContent; List<String> get hashtags;
+ String get id; DateTime get createdAt; DateTime get editedAt; String get title; String get previewContent; List<Hashtag> get hashtags;
 /// Create a copy of Memo
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -45,7 +45,7 @@ abstract mixin class $MemoCopyWith<$Res>  {
   factory $MemoCopyWith(Memo value, $Res Function(Memo) _then) = _$MemoCopyWithImpl;
 @useResult
 $Res call({
- String id, DateTime createdAt, DateTime editedAt, String title, String previewContent, List<String> hashtags
+ String id, DateTime createdAt, DateTime editedAt, String title, String previewContent, List<Hashtag> hashtags
 });
 
 
@@ -70,7 +70,7 @@ as DateTime,editedAt: null == editedAt ? _self.editedAt : editedAt // ignore: ca
 as DateTime,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,previewContent: null == previewContent ? _self.previewContent : previewContent // ignore: cast_nullable_to_non_nullable
 as String,hashtags: null == hashtags ? _self.hashtags : hashtags // ignore: cast_nullable_to_non_nullable
-as List<String>,
+as List<Hashtag>,
   ));
 }
 
@@ -155,7 +155,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  DateTime createdAt,  DateTime editedAt,  String title,  String previewContent,  List<String> hashtags)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  DateTime createdAt,  DateTime editedAt,  String title,  String previewContent,  List<Hashtag> hashtags)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Memo() when $default != null:
 return $default(_that.id,_that.createdAt,_that.editedAt,_that.title,_that.previewContent,_that.hashtags);case _:
@@ -176,7 +176,7 @@ return $default(_that.id,_that.createdAt,_that.editedAt,_that.title,_that.previe
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  DateTime createdAt,  DateTime editedAt,  String title,  String previewContent,  List<String> hashtags)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  DateTime createdAt,  DateTime editedAt,  String title,  String previewContent,  List<Hashtag> hashtags)  $default,) {final _that = this;
 switch (_that) {
 case _Memo():
 return $default(_that.id,_that.createdAt,_that.editedAt,_that.title,_that.previewContent,_that.hashtags);case _:
@@ -196,7 +196,7 @@ return $default(_that.id,_that.createdAt,_that.editedAt,_that.title,_that.previe
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  DateTime createdAt,  DateTime editedAt,  String title,  String previewContent,  List<String> hashtags)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  DateTime createdAt,  DateTime editedAt,  String title,  String previewContent,  List<Hashtag> hashtags)?  $default,) {final _that = this;
 switch (_that) {
 case _Memo() when $default != null:
 return $default(_that.id,_that.createdAt,_that.editedAt,_that.title,_that.previewContent,_that.hashtags);case _:
@@ -211,7 +211,7 @@ return $default(_that.id,_that.createdAt,_that.editedAt,_that.title,_that.previe
 
 
 class _Memo implements Memo {
-  const _Memo({required this.id, required this.createdAt, required this.editedAt, required this.title, required this.previewContent, required final  List<String> hashtags}): _hashtags = hashtags;
+  const _Memo({required this.id, required this.createdAt, required this.editedAt, required this.title, required this.previewContent, required final  List<Hashtag> hashtags}): _hashtags = hashtags;
   
 
 @override final  String id;
@@ -219,8 +219,8 @@ class _Memo implements Memo {
 @override final  DateTime editedAt;
 @override final  String title;
 @override final  String previewContent;
- final  List<String> _hashtags;
-@override List<String> get hashtags {
+ final  List<Hashtag> _hashtags;
+@override List<Hashtag> get hashtags {
   if (_hashtags is EqualUnmodifiableListView) return _hashtags;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_hashtags);
@@ -257,7 +257,7 @@ abstract mixin class _$MemoCopyWith<$Res> implements $MemoCopyWith<$Res> {
   factory _$MemoCopyWith(_Memo value, $Res Function(_Memo) _then) = __$MemoCopyWithImpl;
 @override @useResult
 $Res call({
- String id, DateTime createdAt, DateTime editedAt, String title, String previewContent, List<String> hashtags
+ String id, DateTime createdAt, DateTime editedAt, String title, String previewContent, List<Hashtag> hashtags
 });
 
 
@@ -282,7 +282,7 @@ as DateTime,editedAt: null == editedAt ? _self.editedAt : editedAt // ignore: ca
 as DateTime,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,previewContent: null == previewContent ? _self.previewContent : previewContent // ignore: cast_nullable_to_non_nullable
 as String,hashtags: null == hashtags ? _self._hashtags : hashtags // ignore: cast_nullable_to_non_nullable
-as List<String>,
+as List<Hashtag>,
   ));
 }
 
