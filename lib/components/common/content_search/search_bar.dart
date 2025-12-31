@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:memochon/common/constants.dart';
+import 'package:memochon/components/common/materials/custom_text_field.dart';
 
 class ContentSearchBar extends StatefulWidget {
   const ContentSearchBar({super.key, this.placeholder});
@@ -27,37 +28,20 @@ class _ContentSearchBarState extends State<ContentSearchBar> {
       spacing: LayoutTheme.margin,
       children: [
         Expanded(
-          child: TextField(
+          child: CustomTextField(
+            brightness: brightness,
             controller: _textEditingController,
-            keyboardType: .text,
-            cursorColor: ColorTheme.foreground(brightness),
-            decoration: InputDecoration(
-              labelText: widget.placeholder,
-              labelStyle: TextStyle(
-                color: ColorTheme.backgroundTextSecond(brightness),
-              ),
-              floatingLabelStyle: TextStyle(
-                color: ColorTheme.foreground(brightness),
-              ),
-              border: OutlineInputBorder(borderRadius: .circular(100.0)),
-              enabledBorder: OutlineInputBorder(
-                borderRadius: .circular(100.0),
-                borderSide: BorderSide(
-                  color: ColorTheme.backgroundBorder(brightness),
-                ),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: .circular(100.0),
-                borderSide: BorderSide(
-                  color: ColorTheme.foreground(brightness),
-                ),
-              ),
-              contentPadding: const .symmetric(vertical: 10, horizontal: 18),
-            ),
+            labelText: widget.placeholder,
           ),
         ),
         Container(color: Colors.grey, height: 45, width: 45),
       ],
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _textEditingController.dispose();
   }
 }

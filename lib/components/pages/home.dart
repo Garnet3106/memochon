@@ -30,6 +30,7 @@ class _HomePageState extends ConsumerState<HomePage>
 
     return Scaffold(
       appBar: CommonAppBar(
+        toolbarHeight: 0,
         bottom: TabBar(
           controller: _tabController,
           tabs: [
@@ -39,16 +40,18 @@ class _HomePageState extends ConsumerState<HomePage>
           ],
         ),
       ),
-      body: TabBarView(
-        controller: _tabController,
-        children: [
-          HomeListTab(searchBarPlaceholder: 'メモを検索する', child: MemoList()),
-          HomeListTab(
-            searchBarPlaceholder: 'ブックマークを検索する',
-            child: BookmarkList(),
-          ),
-          HomeListTab(searchBarPlaceholder: 'メディアを検索する', child: MemoList()),
-        ],
+      body: SafeArea(
+        child: TabBarView(
+          controller: _tabController,
+          children: [
+            HomeListTab(searchBarPlaceholder: 'メモを検索する', child: MemoList()),
+            HomeListTab(
+              searchBarPlaceholder: 'ブックマークを検索する',
+              child: BookmarkList(),
+            ),
+            HomeListTab(searchBarPlaceholder: 'メディアを検索する', child: MemoList()),
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: ColorTheme.foreground(brightness),
@@ -65,5 +68,11 @@ class _HomePageState extends ConsumerState<HomePage>
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _tabController.dispose();
   }
 }

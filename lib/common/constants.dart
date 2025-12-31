@@ -59,6 +59,10 @@ abstract final class ColorTheme {
   static const Color lightForegroundTextSecond = Color(0xffa6cd91);
   static const Color darkForegroundTextSecond = Colors.white;
 
+  // 前景の上に出す線
+  static const Color lightForegroundBorder = Color(0xff598342);
+  static const Color darkForegroundBorder = Colors.white;
+
   // オプション
   static const Color lightOptionButton = Color(0xff808080);
   static const Color darkOptionButton = Colors.white;
@@ -97,6 +101,11 @@ abstract final class ColorTheme {
       ? lightForegroundTextSecond
       : darkForegroundTextSecond;
 
+  static Color foregroundBorder(Brightness brightness) =>
+      brightness == Brightness.light
+      ? lightForegroundBorder
+      : darkForegroundBorder;
+
   static Color optionButton(Brightness brightness) =>
       brightness == Brightness.light ? lightOptionButton : darkOptionButton;
 }
@@ -104,4 +113,6 @@ abstract final class ColorTheme {
 abstract final class LayoutTheme {
   static const double margin = 12;
   static const double slimMargin = 5;
+
+  static const double appBarHeight = 50;
 }

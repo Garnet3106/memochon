@@ -1,25 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:memochon/common/constants.dart';
+import 'package:memochon/common/router/routes.dart';
 
 class FloatingContextMenu extends StatelessWidget {
   const FloatingContextMenu({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Padding(
-        padding: .only(bottom: 90, right: LayoutTheme.margin),
-        child: Column(
-          mainAxisAlignment: .end,
-          crossAxisAlignment: .end,
-          spacing: 6,
-          children: [
-            FloatingContextMenuOption(label: 'メディア', onTap: () {}),
-            FloatingContextMenuOption(label: 'ブックマーク', onTap: () {}),
-            FloatingContextMenuOption(label: 'メモ', onTap: () {}),
-          ],
+    return Row(
+      children: [
+        Expanded(
+          child: Padding(
+            padding: .only(bottom: 90, right: LayoutTheme.margin),
+            child: Column(
+              mainAxisAlignment: .end,
+              crossAxisAlignment: .end,
+              spacing: 6,
+              children: [
+                FloatingContextMenuOption(label: 'メディア', onTap: () {}),
+                FloatingContextMenuOption(label: 'ブックマーク', onTap: () {}),
+                FloatingContextMenuOption(
+                  label: 'メモ',
+                  onTap: () {
+                    MemoRoute().go(context);
+                  },
+                ),
+              ],
+            ),
+          ),
         ),
-      ),
+      ],
     );
   }
 }
@@ -43,13 +53,18 @@ class FloatingContextMenuOption extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           color: ColorTheme.foreground(brightness),
+          border: Border.all(
+            color: ColorTheme.foregroundBorder(brightness),
+            width: 2,
+          ),
           borderRadius: .circular(100),
         ),
         padding: .symmetric(horizontal: 27, vertical: 15),
         child: DefaultTextStyle(
           style: TextStyle(
             color: ColorTheme.foregroundText(brightness),
-            fontSize: 18,
+            fontSize: 16,
+            fontWeight: .bold,
           ),
           child: Text(label),
         ),
