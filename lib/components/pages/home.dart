@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:memochon/common/constants.dart';
 import 'package:memochon/components/common/app_bar.dart';
 import 'package:memochon/components/common/home/bookmark/bookmark_list.dart';
+import 'package:memochon/components/common/home/floating_context_menu.dart';
 import 'package:memochon/components/common/home/list_tab.dart';
 import 'package:memochon/components/common/home/memo/memo_list.dart';
 
@@ -24,6 +26,8 @@ class _HomePageState extends ConsumerState<HomePage>
 
   @override
   Widget build(BuildContext context) {
+    final brightness = Theme.of(context).brightness;
+
     return Scaffold(
       appBar: CommonAppBar(
         bottom: TabBar(
@@ -45,6 +49,20 @@ class _HomePageState extends ConsumerState<HomePage>
           ),
           HomeListTab(searchBarPlaceholder: 'メディアを検索する', child: MemoList()),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: ColorTheme.foreground(brightness),
+        onPressed: () {
+          showDialog(
+            context: context,
+            builder: (BuildContext context) => FloatingContextMenu(),
+          );
+        },
+        child: Icon(
+          Icons.add,
+          color: ColorTheme.foregroundText(brightness),
+          size: 30,
+        ),
       ),
     );
   }
