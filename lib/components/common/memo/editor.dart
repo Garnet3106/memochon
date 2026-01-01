@@ -61,10 +61,7 @@ class _MemoEditorState extends ConsumerState<MemoEditor> {
         if (!widget.readOnly)
           Column(
             children: [
-              Divider(
-                color: ColorTheme.backgroundBorder(brightness),
-                height: 1,
-              ),
+              const Divider(),
               Padding(
                 padding: .symmetric(vertical: 3),
                 child: QuillSimpleToolbar(

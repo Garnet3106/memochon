@@ -7,6 +7,10 @@ abstract final class AppTheme {
         backgroundColor: ColorTheme.lightForeground,
         foregroundColor: ColorTheme.lightForegroundText,
       ),
+      dividerTheme: const DividerThemeData(
+        color: ColorTheme.lightBackgroundBorder,
+        thickness: 1,
+      ),
       // accentColor: ,
       // buttonTheme: const ButtonThemeData(buttonColor: Colors.red),
       primaryColor: Colors.red,
