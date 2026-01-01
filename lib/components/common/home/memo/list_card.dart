@@ -17,9 +17,6 @@ class MemoListCard extends StatelessWidget {
         MemoRoute().go(context);
       },
       child: Card(
-        margin: .zero,
-        color: ColorTheme.backgroundSecond(brightness),
-        elevation: 2,
         child: Padding(
           padding: .all(LayoutTheme.margin),
           child: Column(

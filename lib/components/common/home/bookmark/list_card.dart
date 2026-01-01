@@ -15,9 +15,6 @@ class BookmarkListCard extends StatelessWidget {
     final brightness = Theme.of(context).brightness;
 
     return Card(
-      margin: .zero,
-      color: ColorTheme.backgroundSecond(brightness),
-      elevation: 2,
       child: Padding(
         padding: .all(LayoutTheme.margin),
         child: Row(

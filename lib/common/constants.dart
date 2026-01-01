@@ -7,12 +7,18 @@ abstract final class AppTheme {
         backgroundColor: ColorTheme.lightForeground,
         foregroundColor: ColorTheme.lightForegroundText,
       ),
+      cardTheme: CardThemeData(
+        color: ColorTheme.lightBackgroundSecond,
+        elevation: 2,
+        margin: .zero,
+      ),
       dividerTheme: const DividerThemeData(
         color: ColorTheme.lightBackgroundBorder,
         thickness: 1,
       ),
       // accentColor: ,
       // buttonTheme: const ButtonThemeData(buttonColor: Colors.red),
+      highlightColor: ColorTheme.lightForegroundHighlight,
       primaryColor: Colors.red,
       scaffoldBackgroundColor: ColorTheme.lightBackground,
       tabBarTheme: const TabBarThemeData(
@@ -67,6 +73,10 @@ abstract final class ColorTheme {
   static const Color lightForegroundBorder = Color(0xff598342);
   static const Color darkForegroundBorder = Colors.white;
 
+  // 前景の上に出す線
+  static const Color lightForegroundHighlight = Color(0xff598342);
+  static const Color darkForegroundHighlight = Colors.white;
+
   // オプション
   static const Color lightOptionButton = Color(0xff808080);
   static const Color darkOptionButton = Colors.white;
@@ -109,6 +119,11 @@ abstract final class ColorTheme {
       brightness == Brightness.light
       ? lightForegroundBorder
       : darkForegroundBorder;
+
+  static Color foregroundHighlight(Brightness brightness) =>
+      brightness == Brightness.light
+      ? lightForegroundHighlight
+      : darkForegroundHighlight;
 
   static Color optionButton(Brightness brightness) =>
       brightness == Brightness.light ? lightOptionButton : darkOptionButton;
