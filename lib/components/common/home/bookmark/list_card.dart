@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:memochon/common/constants.dart';
-import 'package:memochon/common/entities/bookmark.dart';
+import 'package:loglu/common/constants.dart';
+import 'package:loglu/common/entities/bookmark.dart';
 
 class BookmarkListCard extends StatelessWidget {
   const BookmarkListCard({super.key, required this.bookmark});

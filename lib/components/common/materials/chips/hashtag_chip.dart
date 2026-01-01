@@ -1,4 +1,4 @@
-import 'package:memochon/components/common/materials/chips/custom_chip.dart';
+import 'package:loglu/components/common/materials/chips/custom_chip.dart';
 
 class HashTagChip extends CustomChip {
   const HashTagChip(

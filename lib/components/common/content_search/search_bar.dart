@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:memochon/common/constants.dart';
-import 'package:memochon/components/common/materials/custom_text_field.dart';
+import 'package:loglu/common/constants.dart';
+import 'package:loglu/components/common/materials/custom_text_field.dart';
 
 class ContentSearchBar extends StatefulWidget {
   const ContentSearchBar({super.key, this.placeholder});

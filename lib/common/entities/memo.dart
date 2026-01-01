@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:memochon/common/entities/hashtag.dart';
+import 'package:loglu/common/entities/hashtag.dart';
 
 part 'memo.freezed.dart';
 

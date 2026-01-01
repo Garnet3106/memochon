@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:memochon/common/constants.dart';
-import 'package:memochon/components/common/materials/custom_text_field.dart';
+import 'package:loglu/common/constants.dart';
+import 'package:loglu/components/common/materials/custom_text_field.dart';
 
 class MemoEditor extends ConsumerStatefulWidget {
   const MemoEditor({super.key, required this.readOnly});

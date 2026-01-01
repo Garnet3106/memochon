@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:memochon/common/constants.dart';
-import 'package:memochon/components/common/materials/chips/custom_chip.dart';
+import 'package:loglu/common/constants.dart';
+import 'package:loglu/components/common/materials/chips/custom_chip.dart';
 
 class OptionChip extends StatelessWidget {
   const OptionChip(this.label, {super.key});

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "210863920270",
+    "project_id": "loglu-app",
+    "storage_bucket": "loglu-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:210863920270:android:b1dc3ac7a733f95cbe25df",
+        "android_client_info": {
+          "package_name": "works.garnet.loglu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "210863920270-h2oja791p4dmbdcva2dncn6fo2ff2fu6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "works.garnet.loglu",
+            "certificate_hash": "0e8141490d9f2dd17a3fedc8c11e40ddef6a54fa"
+          }
+        },
+        {
+          "client_id": "210863920270-0i2r9l8rt2t5l6u53uc192g0g58dj9pe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCoTBp07AiF4TXJ5DDdQHOQb8VClF_lGXs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "210863920270-0i2r9l8rt2t5l6u53uc192g0g58dj9pe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

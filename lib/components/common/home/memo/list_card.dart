@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:memochon/common/constants.dart';
-import 'package:memochon/common/entities/memo.dart';
-import 'package:memochon/common/router/routes.dart';
+import 'package:loglu/common/constants.dart';
+import 'package:loglu/common/entities/memo.dart';
+import 'package:loglu/common/router/routes.dart';
 
 class MemoListCard extends StatelessWidget {
   const MemoListCard({super.key, required this.memo});

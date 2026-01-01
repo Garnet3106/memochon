@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:memochon/common/constants.dart';
-import 'package:memochon/common/router/routes.dart';
+import 'package:loglu/common/constants.dart';
+import 'package:loglu/common/router/routes.dart';
 
 class FloatingContextMenu extends StatelessWidget {
   const FloatingContextMenu({super.key});

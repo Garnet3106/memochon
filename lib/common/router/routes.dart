@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:memochon/components/pages/home.dart';
-import 'package:memochon/components/pages/memo.dart';
-import 'package:memochon/components/pages/memo/edit.dart';
+import 'package:loglu/components/pages/home.dart';
+import 'package:loglu/components/pages/memo.dart';
+import 'package:loglu/components/pages/memo/edit.dart';
 
 part 'routes.g.dart';
 

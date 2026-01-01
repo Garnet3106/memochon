@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:memochon/common/constants.dart';
+import 'package:loglu/common/constants.dart';
 
 abstract class CustomChip extends StatelessWidget {
   const CustomChip(

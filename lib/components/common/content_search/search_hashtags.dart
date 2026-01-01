@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:memochon/common/constants.dart';
-import 'package:memochon/components/common/materials/chips/hashtag_chip.dart';
-import 'package:memochon/components/common/materials/chips/option_chip.dart';
+import 'package:loglu/common/constants.dart';
+import 'package:loglu/components/common/materials/chips/hashtag_chip.dart';
+import 'package:loglu/components/common/materials/chips/option_chip.dart';
 
 class ContentSearchHashtags extends StatelessWidget {
   const ContentSearchHashtags({super.key});

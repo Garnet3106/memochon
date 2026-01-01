@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:memochon/common/constants.dart';
-import 'package:memochon/common/router/routes.dart';
-import 'package:memochon/components/common/app_bar.dart';
-import 'package:memochon/components/common/memo/editor.dart';
+import 'package:loglu/common/constants.dart';
+import 'package:loglu/common/router/routes.dart';
+import 'package:loglu/components/common/app_bar.dart';
+import 'package:loglu/components/common/memo/editor.dart';
 
 class MemoPage extends ConsumerWidget {
   const MemoPage({super.key});

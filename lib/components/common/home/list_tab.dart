@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:memochon/common/constants.dart';
-import 'package:memochon/components/common/content_search/search.dart';
+import 'package:loglu/common/constants.dart';
+import 'package:loglu/components/common/content_search/search.dart';
 
 class HomeListTab extends StatelessWidget {
   const HomeListTab({

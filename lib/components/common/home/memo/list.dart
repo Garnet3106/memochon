@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:memochon/common/constants.dart';
-import 'package:memochon/common/entities/hashtag.dart';
-import 'package:memochon/components/common/home/memo/list_card.dart';
-import 'package:memochon/common/entities/memo.dart';
+import 'package:loglu/common/constants.dart';
+import 'package:loglu/common/entities/hashtag.dart';
+import 'package:loglu/components/common/home/memo/list_card.dart';
+import 'package:loglu/common/entities/memo.dart';
 
 class MemoList extends ConsumerWidget {
   const MemoList({super.key});
