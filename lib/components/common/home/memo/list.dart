@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:memochon/common/constants.dart';
 import 'package:memochon/common/entities/hashtag.dart';
-import 'package:memochon/components/common/home/memo/memo_list_card.dart';
+import 'package:memochon/components/common/home/memo/list_card.dart';
 import 'package:memochon/common/entities/memo.dart';
 
 class MemoList extends ConsumerWidget {

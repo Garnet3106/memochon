@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:memochon/common/constants.dart';
 import 'package:memochon/components/common/app_bar.dart';
-import 'package:memochon/components/common/home/bookmark/bookmark_list.dart';
+import 'package:memochon/components/common/home/bookmark/list.dart';
 import 'package:memochon/components/common/home/floating_context_menu.dart';
 import 'package:memochon/components/common/home/list_tab.dart';
-import 'package:memochon/components/common/home/memo/memo_list.dart';
+import 'package:memochon/components/common/home/memo/list.dart';
 
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});

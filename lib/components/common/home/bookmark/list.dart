@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:memochon/common/constants.dart';
 import 'package:memochon/common/entities/bookmark.dart';
 import 'package:memochon/common/entities/hashtag.dart';
-import 'package:memochon/components/common/home/bookmark/bookmark_list_card.dart';
+import 'package:memochon/components/common/home/bookmark/list_card.dart';
 
 class BookmarkList extends ConsumerWidget {
   const BookmarkList({super.key});
