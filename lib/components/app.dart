@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:loglu/common/router/router.dart';
-import 'package:loglu/common/constants.dart';
+import 'package:loglu/shared/router/router.dart';
+import 'package:loglu/shared/constants.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_quill/flutter_quill.dart';
 
