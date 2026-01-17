@@ -11,16 +11,19 @@ part of 'memo.dart';
 
 // dart format off
 T _$identity<T>(T value) => value;
+
 /// @nodoc
 mixin _$Memo {
 
- String get id; DateTime get createdAt; DateTime get editedAt; String get title; String get previewContent; List<Hashtag> get hashtags;
+ int get id; DateTime get createdAt; DateTime get editedAt; String get title; String get previewContent; List<Hashtag> get hashtags;
 /// Create a copy of Memo
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
 $MemoCopyWith<Memo> get copyWith => _$MemoCopyWithImpl<Memo>(this as Memo, _$identity);
 
+  /// Serializes this Memo to a JSON map.
+  Map<String, dynamic> toJson();
 
 
 @override
@@ -28,7 +31,7 @@ bool operator ==(Object other) {
   return identical(this, other) || (other.runtimeType == runtimeType&&other is Memo&&(identical(other.id, id) || other.id == id)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.editedAt, editedAt) || other.editedAt == editedAt)&&(identical(other.title, title) || other.title == title)&&(identical(other.previewContent, previewContent) || other.previewContent == previewContent)&&const DeepCollectionEquality().equals(other.hashtags, hashtags));
 }
 
-
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode => Object.hash(runtimeType,id,createdAt,editedAt,title,previewContent,const DeepCollectionEquality().hash(hashtags));
 
@@ -45,7 +48,7 @@ abstract mixin class $MemoCopyWith<$Res>  {
   factory $MemoCopyWith(Memo value, $Res Function(Memo) _then) = _$MemoCopyWithImpl;
 @useResult
 $Res call({
- String id, DateTime createdAt, DateTime editedAt, String title, String previewContent, List<Hashtag> hashtags
+ int id, DateTime createdAt, DateTime editedAt, String title, String previewContent, List<Hashtag> hashtags
 });
 
 
@@ -65,7 +68,7 @@ class _$MemoCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? createdAt = null,Object? editedAt = null,Object? title = null,Object? previewContent = null,Object? hashtags = null,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as String,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as int,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime,editedAt: null == editedAt ? _self.editedAt : editedAt // ignore: cast_nullable_to_non_nullable
 as DateTime,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,previewContent: null == previewContent ? _self.previewContent : previewContent // ignore: cast_nullable_to_non_nullable
@@ -155,7 +158,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  DateTime createdAt,  DateTime editedAt,  String title,  String previewContent,  List<Hashtag> hashtags)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int id,  DateTime createdAt,  DateTime editedAt,  String title,  String previewContent,  List<Hashtag> hashtags)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Memo() when $default != null:
 return $default(_that.id,_that.createdAt,_that.editedAt,_that.title,_that.previewContent,_that.hashtags);case _:
@@ -176,7 +179,7 @@ return $default(_that.id,_that.createdAt,_that.editedAt,_that.title,_that.previe
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  DateTime createdAt,  DateTime editedAt,  String title,  String previewContent,  List<Hashtag> hashtags)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int id,  DateTime createdAt,  DateTime editedAt,  String title,  String previewContent,  List<Hashtag> hashtags)  $default,) {final _that = this;
 switch (_that) {
 case _Memo():
 return $default(_that.id,_that.createdAt,_that.editedAt,_that.title,_that.previewContent,_that.hashtags);case _:
@@ -196,7 +199,7 @@ return $default(_that.id,_that.createdAt,_that.editedAt,_that.title,_that.previe
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  DateTime createdAt,  DateTime editedAt,  String title,  String previewContent,  List<Hashtag> hashtags)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int id,  DateTime createdAt,  DateTime editedAt,  String title,  String previewContent,  List<Hashtag> hashtags)?  $default,) {final _that = this;
 switch (_that) {
 case _Memo() when $default != null:
 return $default(_that.id,_that.createdAt,_that.editedAt,_that.title,_that.previewContent,_that.hashtags);case _:
@@ -208,13 +211,13 @@ return $default(_that.id,_that.createdAt,_that.editedAt,_that.title,_that.previe
 }
 
 /// @nodoc
-
+@JsonSerializable()
 
 class _Memo implements Memo {
   const _Memo({required this.id, required this.createdAt, required this.editedAt, required this.title, required this.previewContent, required final  List<Hashtag> hashtags}): _hashtags = hashtags;
-  
+  factory _Memo.fromJson(Map<String, dynamic> json) => _$MemoFromJson(json);
 
-@override final  String id;
+@override final  int id;
 @override final  DateTime createdAt;
 @override final  DateTime editedAt;
 @override final  String title;
@@ -233,14 +236,17 @@ class _Memo implements Memo {
 @pragma('vm:prefer-inline')
 _$MemoCopyWith<_Memo> get copyWith => __$MemoCopyWithImpl<_Memo>(this, _$identity);
 
-
+@override
+Map<String, dynamic> toJson() {
+  return _$MemoToJson(this, );
+}
 
 @override
 bool operator ==(Object other) {
   return identical(this, other) || (other.runtimeType == runtimeType&&other is _Memo&&(identical(other.id, id) || other.id == id)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.editedAt, editedAt) || other.editedAt == editedAt)&&(identical(other.title, title) || other.title == title)&&(identical(other.previewContent, previewContent) || other.previewContent == previewContent)&&const DeepCollectionEquality().equals(other._hashtags, _hashtags));
 }
 
-
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode => Object.hash(runtimeType,id,createdAt,editedAt,title,previewContent,const DeepCollectionEquality().hash(_hashtags));
 
@@ -257,7 +263,7 @@ abstract mixin class _$MemoCopyWith<$Res> implements $MemoCopyWith<$Res> {
   factory _$MemoCopyWith(_Memo value, $Res Function(_Memo) _then) = __$MemoCopyWithImpl;
 @override @useResult
 $Res call({
- String id, DateTime createdAt, DateTime editedAt, String title, String previewContent, List<Hashtag> hashtags
+ int id, DateTime createdAt, DateTime editedAt, String title, String previewContent, List<Hashtag> hashtags
 });
 
 
@@ -277,7 +283,7 @@ class __$MemoCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? createdAt = null,Object? editedAt = null,Object? title = null,Object? previewContent = null,Object? hashtags = null,}) {
   return _then(_Memo(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as String,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as int,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime,editedAt: null == editedAt ? _self.editedAt : editedAt // ignore: cast_nullable_to_non_nullable
 as DateTime,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,previewContent: null == previewContent ? _self.previewContent : previewContent // ignore: cast_nullable_to_non_nullable

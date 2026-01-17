@@ -11,6 +11,7 @@ part of 'hashtag.dart';
 
 // dart format off
 T _$identity<T>(T value) => value;
+
 /// @nodoc
 mixin _$Hashtag {
 
@@ -21,6 +22,8 @@ mixin _$Hashtag {
 @pragma('vm:prefer-inline')
 $HashtagCopyWith<Hashtag> get copyWith => _$HashtagCopyWithImpl<Hashtag>(this as Hashtag, _$identity);
 
+  /// Serializes this Hashtag to a JSON map.
+  Map<String, dynamic> toJson();
 
 
 @override
@@ -28,7 +31,7 @@ bool operator ==(Object other) {
   return identical(this, other) || (other.runtimeType == runtimeType&&other is Hashtag&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name));
 }
 
-
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode => Object.hash(runtimeType,id,name);
 
@@ -204,11 +207,11 @@ return $default(_that.id,_that.name);case _:
 }
 
 /// @nodoc
-
+@JsonSerializable()
 
 class _Hashtag implements Hashtag {
   const _Hashtag({required this.id, required this.name});
-  
+  factory _Hashtag.fromJson(Map<String, dynamic> json) => _$HashtagFromJson(json);
 
 @override final  String id;
 @override final  String name;
@@ -219,14 +222,17 @@ class _Hashtag implements Hashtag {
 @pragma('vm:prefer-inline')
 _$HashtagCopyWith<_Hashtag> get copyWith => __$HashtagCopyWithImpl<_Hashtag>(this, _$identity);
 
-
+@override
+Map<String, dynamic> toJson() {
+  return _$HashtagToJson(this, );
+}
 
 @override
 bool operator ==(Object other) {
   return identical(this, other) || (other.runtimeType == runtimeType&&other is _Hashtag&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name));
 }
 
-
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode => Object.hash(runtimeType,id,name);
 

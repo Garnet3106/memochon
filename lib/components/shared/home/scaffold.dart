@@ -6,6 +6,7 @@ import 'package:loglu/components/shared/home/bookmark/list.dart';
 import 'package:loglu/components/shared/home/floating_context_menu.dart';
 import 'package:loglu/components/shared/home/list_tab.dart';
 import 'package:loglu/components/shared/home/memo/list.dart';
+import 'package:loglu/shared/firebase.dart';
 
 class HomeScaffold extends ConsumerStatefulWidget {
   const HomeScaffold({super.key});
@@ -26,6 +27,7 @@ class _HomeScaffoldState extends ConsumerState<HomeScaffold>
 
   @override
   Widget build(BuildContext context) {
+    getAuthToken().then((token) => print(token));
     final brightness = Theme.of(context).brightness;
 
     return Scaffold(

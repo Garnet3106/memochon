@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:loglu/shared/constants.dart';
-import 'package:loglu/shared/entities/bookmark.dart';
-import 'package:loglu/shared/entities/hashtag.dart';
+import 'package:loglu/shared/models/bookmark.dart';
+import 'package:loglu/shared/models/hashtag.dart';
 import 'package:loglu/components/shared/home/bookmark/list_card.dart';
 
 class BookmarkList extends ConsumerWidget {

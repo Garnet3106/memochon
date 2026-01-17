@@ -1,7 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:loglu/shared/entities/hashtag.dart';
+import 'package:loglu/shared/models/hashtag.dart';
 
 part 'bookmark.freezed.dart';
+part 'bookmark.g.dart';
 
 @Freezed()
 abstract class Bookmark with _$Bookmark {
@@ -16,6 +17,9 @@ abstract class Bookmark with _$Bookmark {
     required String thumbnailUrl,
     required List<Hashtag> hashtags,
   }) = _Bookmark;
+
+  factory Bookmark.fromJson(Map<String, dynamic> json) =>
+      _$BookmarkFromJson(json);
 
   String get domain {
     try {

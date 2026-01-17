@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:loglu/shared/constants.dart';
-import 'package:loglu/shared/entities/memo.dart';
+import 'package:loglu/shared/models/memo.dart';
 import 'package:loglu/shared/router/routes.dart';
 
 class MemoListCard extends StatelessWidget {

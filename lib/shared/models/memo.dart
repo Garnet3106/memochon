@@ -1,16 +1,19 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:loglu/shared/entities/hashtag.dart';
+import 'package:loglu/shared/models/hashtag.dart';
 
 part 'memo.freezed.dart';
+part 'memo.g.dart';
 
 @Freezed()
 abstract class Memo with _$Memo {
   const factory Memo({
-    required String id,
+    required int id,
     required DateTime createdAt,
     required DateTime editedAt,
     required String title,
     required String previewContent,
     required List<Hashtag> hashtags,
   }) = _Memo;
+
+  factory Memo.fromJson(Map<String, dynamic> json) => _$MemoFromJson(json);
 }

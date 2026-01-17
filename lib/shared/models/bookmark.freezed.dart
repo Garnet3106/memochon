@@ -11,6 +11,7 @@ part of 'bookmark.dart';
 
 // dart format off
 T _$identity<T>(T value) => value;
+
 /// @nodoc
 mixin _$Bookmark {
 
@@ -21,6 +22,8 @@ mixin _$Bookmark {
 @pragma('vm:prefer-inline')
 $BookmarkCopyWith<Bookmark> get copyWith => _$BookmarkCopyWithImpl<Bookmark>(this as Bookmark, _$identity);
 
+  /// Serializes this Bookmark to a JSON map.
+  Map<String, dynamic> toJson();
 
 
 @override
@@ -28,7 +31,7 @@ bool operator ==(Object other) {
   return identical(this, other) || (other.runtimeType == runtimeType&&other is Bookmark&&(identical(other.id, id) || other.id == id)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.editedAt, editedAt) || other.editedAt == editedAt)&&(identical(other.title, title) || other.title == title)&&(identical(other.url, url) || other.url == url)&&(identical(other.thumbnailUrl, thumbnailUrl) || other.thumbnailUrl == thumbnailUrl)&&const DeepCollectionEquality().equals(other.hashtags, hashtags));
 }
 
-
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode => Object.hash(runtimeType,id,createdAt,editedAt,title,url,thumbnailUrl,const DeepCollectionEquality().hash(hashtags));
 
@@ -209,11 +212,11 @@ return $default(_that.id,_that.createdAt,_that.editedAt,_that.title,_that.url,_t
 }
 
 /// @nodoc
-
+@JsonSerializable()
 
 class _Bookmark extends Bookmark {
   const _Bookmark({required this.id, required this.createdAt, required this.editedAt, required this.title, required this.url, required this.thumbnailUrl, required final  List<Hashtag> hashtags}): _hashtags = hashtags,super._();
-  
+  factory _Bookmark.fromJson(Map<String, dynamic> json) => _$BookmarkFromJson(json);
 
 @override final  String id;
 @override final  DateTime createdAt;
@@ -235,14 +238,17 @@ class _Bookmark extends Bookmark {
 @pragma('vm:prefer-inline')
 _$BookmarkCopyWith<_Bookmark> get copyWith => __$BookmarkCopyWithImpl<_Bookmark>(this, _$identity);
 
-
+@override
+Map<String, dynamic> toJson() {
+  return _$BookmarkToJson(this, );
+}
 
 @override
 bool operator ==(Object other) {
   return identical(this, other) || (other.runtimeType == runtimeType&&other is _Bookmark&&(identical(other.id, id) || other.id == id)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.editedAt, editedAt) || other.editedAt == editedAt)&&(identical(other.title, title) || other.title == title)&&(identical(other.url, url) || other.url == url)&&(identical(other.thumbnailUrl, thumbnailUrl) || other.thumbnailUrl == thumbnailUrl)&&const DeepCollectionEquality().equals(other._hashtags, _hashtags));
 }
 
-
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode => Object.hash(runtimeType,id,createdAt,editedAt,title,url,thumbnailUrl,const DeepCollectionEquality().hash(_hashtags));
 
