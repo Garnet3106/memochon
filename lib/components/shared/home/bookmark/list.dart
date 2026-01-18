@@ -18,9 +18,9 @@ class BookmarkList extends ConsumerWidget {
       url: 'https://photos.google.com',
       thumbnailUrl: 'https://example.com/thumbnail.jpg',
       hashtags: [
-        Hashtag(id: '1', name: 'ニュース'),
-        Hashtag(id: '2', name: 'テクノロジー'),
-        Hashtag(id: '3', name: 'ブログ'),
+        Hashtag(id: 1, name: 'ニュース'),
+        Hashtag(id: 2, name: 'テクノロジー'),
+        Hashtag(id: 3, name: 'ブログ'),
       ],
     );
 

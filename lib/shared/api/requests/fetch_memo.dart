@@ -9,6 +9,7 @@ abstract class FetchMemoRequest with _$FetchMemoRequest {
 
   const factory FetchMemoRequest({required int offset, required int limit}) =
       _FetchMemoRequest;
+
   factory FetchMemoRequest.fromJson(Map<String, dynamic> json) =>
       _$FetchMemoRequestFromJson(json);
 }

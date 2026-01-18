@@ -5,7 +5,7 @@ part 'hashtag.g.dart';
 
 @Freezed()
 abstract class Hashtag with _$Hashtag {
-  const factory Hashtag({required String id, required String name}) = _Hashtag;
+  const factory Hashtag({required int id, required String name}) = _Hashtag;
 
   factory Hashtag.fromJson(Map<String, dynamic> json) =>
       _$HashtagFromJson(json);

@@ -11,8 +11,9 @@ abstract class Memo with _$Memo {
     required DateTime createdAt,
     required DateTime editedAt,
     required String title,
-    required String previewContent,
     required List<Hashtag> hashtags,
+    required String previewContent,
+    required String content,
   }) = _Memo;
 
   factory Memo.fromJson(Map<String, dynamic> json) => _$MemoFromJson(json);

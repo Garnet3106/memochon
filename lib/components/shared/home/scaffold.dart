@@ -27,7 +27,10 @@ class _HomeScaffoldState extends ConsumerState<HomeScaffold>
 
   @override
   Widget build(BuildContext context) {
-    getAuthToken().then((token) => print(token));
+    getAuthToken().then((token) {
+      print(token.substring(0, 500));
+      print(token.substring(500));
+    });
     final brightness = Theme.of(context).brightness;
 
     return Scaffold(

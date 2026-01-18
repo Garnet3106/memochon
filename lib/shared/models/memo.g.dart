@@ -11,10 +11,11 @@ _Memo _$MemoFromJson(Map<String, dynamic> json) => _Memo(
   createdAt: DateTime.parse(json['createdAt'] as String),
   editedAt: DateTime.parse(json['editedAt'] as String),
   title: json['title'] as String,
-  previewContent: json['previewContent'] as String,
   hashtags: (json['hashtags'] as List<dynamic>)
       .map((e) => Hashtag.fromJson(e as Map<String, dynamic>))
       .toList(),
+  previewContent: json['previewContent'] as String,
+  content: json['content'] as String,
 );
 
 Map<String, dynamic> _$MemoToJson(_Memo instance) => <String, dynamic>{
@@ -22,6 +23,7 @@ Map<String, dynamic> _$MemoToJson(_Memo instance) => <String, dynamic>{
   'createdAt': instance.createdAt.toIso8601String(),
   'editedAt': instance.editedAt.toIso8601String(),
   'title': instance.title,
-  'previewContent': instance.previewContent,
   'hashtags': instance.hashtags,
+  'previewContent': instance.previewContent,
+  'content': instance.content,
 };

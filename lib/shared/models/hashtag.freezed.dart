@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Hashtag {
 
- String get id; String get name;
+ int get id; String get name;
 /// Create a copy of Hashtag
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $HashtagCopyWith<$Res>  {
   factory $HashtagCopyWith(Hashtag value, $Res Function(Hashtag) _then) = _$HashtagCopyWithImpl;
 @useResult
 $Res call({
- String id, String name
+ int id, String name
 });
 
 
@@ -68,7 +68,7 @@ class _$HashtagCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }
@@ -154,7 +154,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String name)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int id,  String name)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Hashtag() when $default != null:
 return $default(_that.id,_that.name);case _:
@@ -175,7 +175,7 @@ return $default(_that.id,_that.name);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String name)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int id,  String name)  $default,) {final _that = this;
 switch (_that) {
 case _Hashtag():
 return $default(_that.id,_that.name);case _:
@@ -195,7 +195,7 @@ return $default(_that.id,_that.name);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String name)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int id,  String name)?  $default,) {final _that = this;
 switch (_that) {
 case _Hashtag() when $default != null:
 return $default(_that.id,_that.name);case _:
@@ -213,7 +213,7 @@ class _Hashtag implements Hashtag {
   const _Hashtag({required this.id, required this.name});
   factory _Hashtag.fromJson(Map<String, dynamic> json) => _$HashtagFromJson(json);
 
-@override final  String id;
+@override final  int id;
 @override final  String name;
 
 /// Create a copy of Hashtag
@@ -249,7 +249,7 @@ abstract mixin class _$HashtagCopyWith<$Res> implements $HashtagCopyWith<$Res> {
   factory _$HashtagCopyWith(_Hashtag value, $Res Function(_Hashtag) _then) = __$HashtagCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String name
+ int id, String name
 });
 
 
@@ -269,7 +269,7 @@ class __$HashtagCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,}) {
   return _then(_Hashtag(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }

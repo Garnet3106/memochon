@@ -7,7 +7,7 @@ part of 'hashtag.dart';
 // **************************************************************************
 
 _Hashtag _$HashtagFromJson(Map<String, dynamic> json) =>
-    _Hashtag(id: json['id'] as String, name: json['name'] as String);
+    _Hashtag(id: (json['id'] as num).toInt(), name: json['name'] as String);
 
 Map<String, dynamic> _$HashtagToJson(_Hashtag instance) => <String, dynamic>{
   'id': instance.id,
