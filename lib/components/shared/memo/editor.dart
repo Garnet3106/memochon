@@ -1,12 +1,63 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:loglu/shared/constants.dart';
 import 'package:loglu/components/shared/materials/custom_text_field.dart';
+import 'package:loglu/shared/models/memo.dart';
+import 'package:loglu/shared/view_models/memo.dart';
+
+class MemoEditorController {
+  MemoEditorController() {
+    _quillController = QuillController.basic();
+    _titleEditingController = TextEditingController();
+  }
+
+  late QuillController _quillController;
+  late TextEditingController _titleEditingController;
+
+  String getTitle() {
+    return _titleEditingController.text;
+  }
+
+  void setTitle(String title) {
+    _titleEditingController.text = title;
+  }
+
+  String getEditorContent() {
+    return jsonEncode(_quillController.document.toDelta().toJson());
+  }
+
+  void setEditorContent(String content) {
+    try {
+      _quillController.document = Document.fromJson(jsonDecode(content));
+    } catch (e) {
+      // todo: エラー時は内容をエラー文で上書きしないようにメモを保存禁止にする
+      _quillController.document = Document.fromJson(
+        jsonDecode(
+          '[{"insert":"読み込みに失敗しました。\\n編集またはプレビューをキャンセルしてもう一度お試しください。\\n"}]',
+        ),
+      );
+    }
+  }
+
+  void dispose() {
+    _quillController.dispose();
+    _titleEditingController.dispose();
+  }
+}
 
 class MemoEditor extends ConsumerStatefulWidget {
-  const MemoEditor({super.key, required this.readOnly});
+  const MemoEditor({
+    super.key,
+    required this.controller,
+    required this.memoId,
+    required this.readOnly,
+  });
 
+  final MemoEditorController controller;
+  final int memoId;
   final bool readOnly;
 
   @override
@@ -14,15 +65,17 @@ class MemoEditor extends ConsumerStatefulWidget {
 }
 
 class _MemoEditorState extends ConsumerState<MemoEditor> {
-  late TextEditingController _textEditingController;
-  late QuillController _quillController;
+  late Memo? memo;
 
   @override
   void initState() {
     super.initState();
-    _textEditingController = TextEditingController();
-    _quillController = QuillController.basic();
-    _quillController.readOnly = widget.readOnly;
+    widget.controller._quillController.readOnly = widget.readOnly;
+    if (widget.memoId >= 0) {
+      memo = ref.read(memoListViewModelProvider.notifier).find(widget.memoId);
+      widget.controller.setTitle(memo!.title);
+      widget.controller.setEditorContent(memo!.content);
+    }
   }
 
   @override
@@ -34,13 +87,13 @@ class _MemoEditorState extends ConsumerState<MemoEditor> {
       children: [
         CustomTextField(
           brightness: brightness,
-          controller: _textEditingController,
+          controller: widget.controller._titleEditingController,
           labelText: 'タイトル未設定',
           readOnly: widget.readOnly,
         ),
         Expanded(
           child: QuillEditor.basic(
-            controller: _quillController,
+            controller: widget.controller._quillController,
             config: QuillEditorConfig(
               customStyles: DefaultStyles(
                 paragraph: DefaultTextBlockStyle(
@@ -65,7 +118,7 @@ class _MemoEditorState extends ConsumerState<MemoEditor> {
               Padding(
                 padding: .symmetric(vertical: 3),
                 child: QuillSimpleToolbar(
-                  controller: _quillController,
+                  controller: widget.controller._quillController,
                   config: QuillSimpleToolbarConfig(
                     color: ColorTheme.background(brightness),
                     multiRowsDisplay: false,
@@ -98,12 +151,5 @@ class _MemoEditorState extends ConsumerState<MemoEditor> {
           ),
       ],
     );
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    _textEditingController.dispose();
-    _quillController.dispose();
   }
 }

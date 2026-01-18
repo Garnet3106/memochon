@@ -4,12 +4,28 @@ import 'package:loglu/shared/constants.dart';
 import 'package:loglu/shared/router/routes.dart';
 import 'package:loglu/components/shared/app_bar.dart';
 import 'package:loglu/components/shared/memo/editor.dart';
+import 'package:loglu/shared/view_models/memo.dart';
 
-class MemoPage extends ConsumerWidget {
-  const MemoPage({super.key});
+class MemoPage extends ConsumerStatefulWidget {
+  const MemoPage({super.key, required this.memoId});
+
+  final int memoId;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<MemoPage> createState() => _MemoPageState();
+}
+
+class _MemoPageState extends ConsumerState<MemoPage> {
+  late MemoEditorController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = MemoEditorController();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final brightness = Theme.of(context).brightness;
 
     return Scaffold(
@@ -17,7 +33,7 @@ class MemoPage extends ConsumerWidget {
         actions: [
           GestureDetector(
             onTap: () {
-              EditMemoRoute().go(context);
+              EditMemoRoute(memoId: widget.memoId).go(context);
             },
             child: const Padding(
               padding: .symmetric(horizontal: 15, vertical: 5),
@@ -27,6 +43,7 @@ class MemoPage extends ConsumerWidget {
         ],
         leading: GestureDetector(
           onTap: () {
+            ref.invalidate(memoListViewModelProvider);
             HomeRoute().go(context);
           },
           child: const Padding(
@@ -54,9 +71,19 @@ class MemoPage extends ConsumerWidget {
             right: LayoutTheme.margin,
             left: LayoutTheme.margin,
           ),
-          child: MemoEditor(readOnly: true),
+          child: MemoEditor(
+            controller: _controller,
+            memoId: widget.memoId,
+            readOnly: true,
+          ),
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
   }
 }

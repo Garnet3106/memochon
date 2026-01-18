@@ -22,7 +22,7 @@ class FloatingContextMenu extends StatelessWidget {
                 FloatingContextMenuOption(
                   label: 'メモ',
                   onTap: () {
-                    MemoRoute().go(context);
+                    EditMemoRoute(memoId: -1).go(context);
                   },
                 ),
               ],

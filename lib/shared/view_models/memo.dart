@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:hooks_riverpod/legacy.dart';
 import 'package:loglu/shared/api/requests/create_memo.dart';
 import 'package:loglu/shared/api/requests/fetch_memo.dart';
@@ -29,5 +30,9 @@ class MemoListViewModel extends StateNotifier<AsyncValue<List<Memo>>> {
     final memo = await _memoRepository.create(options);
     await fetch(FetchMemoRequest(offset: 0, limit: paginationCount));
     return memo;
+  }
+
+  Memo? find(int id) {
+    return state.value?.firstWhereOrNull((memo) => memo.id == id);
   }
 }

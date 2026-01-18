@@ -14,7 +14,7 @@ class MemoListCard extends StatelessWidget {
 
     return GestureDetector(
       onTap: () {
-        MemoRoute().go(context);
+        MemoRoute(memoId: memo.id).go(context);
       },
       child: Card(
         child: Padding(
@@ -29,7 +29,7 @@ class MemoListCard extends StatelessWidget {
                 overflow: .ellipsis,
                 style: TextStyle(fontSize: 16, fontWeight: .bold),
               ),
-              Text(memo.previewContent, maxLines: 2, overflow: .ellipsis),
+              Text(memo.contentPreview, maxLines: 2, overflow: .ellipsis),
               Text(
                 memo.hashtags.map((tag) => '#${tag.name}').join('  '),
                 maxLines: 1,

@@ -19,17 +19,22 @@ class HomeRoute extends GoRouteData with $HomeRoute {
   routes: [TypedGoRoute<EditMemoRoute>(path: 'edit')],
 )
 class MemoRoute extends GoRouteData with $MemoRoute {
-  const MemoRoute();
+  const MemoRoute({required this.memoId});
+
+  final int memoId;
 
   @override
-  Widget build(BuildContext context, GoRouterState state) => const MemoPage();
+  Widget build(BuildContext context, GoRouterState state) =>
+      MemoPage(memoId: memoId);
 }
 
 @immutable
 class EditMemoRoute extends GoRouteData with $EditMemoRoute {
-  const EditMemoRoute();
+  const EditMemoRoute({required this.memoId});
+
+  final int memoId;
 
   @override
   Widget build(BuildContext context, GoRouterState state) =>
-      const EditMemoPage();
+      EditMemoPage(memoId: memoId);
 }

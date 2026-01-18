@@ -40,10 +40,16 @@ RouteBase get $memoRoute => GoRouteData.$route(
 );
 
 mixin $MemoRoute on GoRouteData {
-  static MemoRoute _fromState(GoRouterState state) => const MemoRoute();
+  static MemoRoute _fromState(GoRouterState state) =>
+      MemoRoute(memoId: int.parse(state.uri.queryParameters['memo-id']!));
+
+  MemoRoute get _self => this as MemoRoute;
 
   @override
-  String get location => GoRouteData.$location('/memo');
+  String get location => GoRouteData.$location(
+    '/memo',
+    queryParams: {'memo-id': _self.memoId.toString()},
+  );
 
   @override
   void go(BuildContext context) => context.go(location);
@@ -60,10 +66,16 @@ mixin $MemoRoute on GoRouteData {
 }
 
 mixin $EditMemoRoute on GoRouteData {
-  static EditMemoRoute _fromState(GoRouterState state) => const EditMemoRoute();
+  static EditMemoRoute _fromState(GoRouterState state) =>
+      EditMemoRoute(memoId: int.parse(state.uri.queryParameters['memo-id']!));
+
+  EditMemoRoute get _self => this as EditMemoRoute;
 
   @override
-  String get location => GoRouteData.$location('/memo/edit');
+  String get location => GoRouteData.$location(
+    '/memo/edit',
+    queryParams: {'memo-id': _self.memoId.toString()},
+  );
 
   @override
   void go(BuildContext context) => context.go(location);
