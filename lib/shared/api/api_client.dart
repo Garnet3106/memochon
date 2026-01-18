@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:loglu/shared/api/requests/create_memo.dart';
 import 'package:loglu/shared/api/requests/fetch_memo.dart';
+import 'package:loglu/shared/api/requests/update_memo.dart';
 import 'package:loglu/shared/models/memo.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -30,5 +31,11 @@ abstract class ApiClient {
   Future<Memo> createMemos(
     @Header('Authorization') String authToken,
     @Body() CreateMemoRequest body,
+  );
+
+  @PUT('/memos')
+  Future<Memo> updateMemos(
+    @Header('Authorization') String authToken,
+    @Body() UpdateMemoRequest body,
   );
 }

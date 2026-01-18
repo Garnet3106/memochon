@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:loglu/shared/api/requests/create_memo.dart';
+import 'package:loglu/shared/api/requests/update_memo.dart';
 import 'package:loglu/shared/constants.dart';
 import 'package:loglu/shared/router/routes.dart';
 import 'package:loglu/components/shared/app_bar.dart';
@@ -35,18 +36,36 @@ class _EditMemoPageState extends ConsumerState<EditMemoPage> {
           GestureDetector(
             onTap: () {
               final content = _controller.getEditorContent();
-              final title = _controller.getTitle();
-              ref
-                  .read(memoListViewModelProvider.notifier)
-                  .create(
-                    CreateMemoRequest(
-                      // todo: ユーザーが任意で日付設定できるようにする
-                      date: DateTime.now(),
-                      title: title,
-                      hashtags: [] /* todo */,
-                      content: content,
-                    ),
-                  );
+              var title = _controller.getTitle();
+              if (title.isEmpty) {
+                title = '無題のメモ';
+              }
+              if (widget.memoId >= 0) {
+                ref
+                    .read(memoListViewModelProvider.notifier)
+                    .create(
+                      CreateMemoRequest(
+                        // todo: ユーザーが任意で日付設定できるようにする
+                        date: DateTime.now(),
+                        title: title,
+                        hashtags: [], // fix
+                        content: content,
+                      ),
+                    );
+              } else {
+                ref
+                    .read(memoListViewModelProvider.notifier)
+                    .update(
+                      UpdateMemoRequest(
+                        id: widget.memoId,
+                        editedAt: DateTime.now(),
+                        date: DateTime.now(), // fix
+                        title: title,
+                        hashtags: [], // fix
+                        content: content,
+                      ),
+                    );
+              }
               HomeRoute().go(context);
             },
             child: const Padding(

@@ -32,6 +32,7 @@ class MemoRoute extends GoRouteData with $MemoRoute {
 class EditMemoRoute extends GoRouteData with $EditMemoRoute {
   const EditMemoRoute({required this.memoId});
 
+  /// 新規作成メモの場合は -1 を指定すること
   final int memoId;
 
   @override

@@ -2,6 +2,7 @@ import 'package:collection/collection.dart';
 import 'package:hooks_riverpod/legacy.dart';
 import 'package:loglu/shared/api/requests/create_memo.dart';
 import 'package:loglu/shared/api/requests/fetch_memo.dart';
+import 'package:loglu/shared/api/requests/update_memo.dart';
 import 'package:loglu/shared/models/memo.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:loglu/shared/repositories/memo.dart';
@@ -28,6 +29,12 @@ class MemoListViewModel extends StateNotifier<AsyncValue<List<Memo>>> {
 
   Future<Memo> create(CreateMemoRequest options) async {
     final memo = await _memoRepository.create(options);
+    await fetch(FetchMemoRequest(offset: 0, limit: paginationCount));
+    return memo;
+  }
+
+  Future<Memo> update(UpdateMemoRequest options) async {
+    final memo = await _memoRepository.update(options);
     await fetch(FetchMemoRequest(offset: 0, limit: paginationCount));
     return memo;
   }
