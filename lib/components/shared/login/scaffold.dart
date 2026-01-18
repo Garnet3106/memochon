@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:loglu/shared/constants.dart';
+import 'package:loglu/shared/view_models/user.dart';
 
 class LoginScaffold extends ConsumerWidget {
   const LoginScaffold({super.key});
@@ -37,6 +38,7 @@ class LoginScaffold extends ConsumerWidget {
               await FirebaseAuth.instance.signInWithProvider(
                 GoogleAuthProvider(),
               );
+              await ref.watch(userViewModelProvider.notifier).create();
             },
             child: Row(
               mainAxisSize: MainAxisSize.min,
