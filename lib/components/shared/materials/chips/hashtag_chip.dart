@@ -1,7 +1,7 @@
 import 'package:loglu/components/shared/materials/chips/custom_chip.dart';
 
-class HashTagChip extends CustomChip {
-  const HashTagChip(
+class HashtagChip extends CustomChip {
+  const HashtagChip(
     super.label, {
     super.key,
     required super.isSelected,

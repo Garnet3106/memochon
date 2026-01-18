@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:loglu/shared/api/requests/create_memo.dart';
 import 'package:loglu/shared/api/requests/fetch_memo.dart';
 import 'package:loglu/shared/api/requests/update_memo.dart';
+import 'package:loglu/shared/models/hashtag.dart';
 import 'package:loglu/shared/models/memo.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -41,4 +42,7 @@ abstract class ApiClient {
     @Header('Authorization') String authToken,
     @Body() UpdateMemoRequest body,
   );
+
+  @GET('/hashtags')
+  Future<List<Hashtag>> getHashtags(@Header('Authorization') String authToken);
 }

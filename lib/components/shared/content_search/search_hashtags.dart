@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:loglu/shared/constants.dart';
 import 'package:loglu/components/shared/materials/chips/hashtag_chip.dart';
 import 'package:loglu/components/shared/materials/chips/option_chip.dart';
+import 'package:loglu/shared/view_models/hashtag.dart';
 
-class ContentSearchHashtags extends StatelessWidget {
+class ContentSearchHashtags extends ConsumerWidget {
   const ContentSearchHashtags({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final hashtagProvider = ref.watch(hashtagListViewModelProvider);
     return Row(
       children: [
         Expanded(
@@ -15,16 +18,19 @@ class ContentSearchHashtags extends StatelessWidget {
             spacing: LayoutTheme.slimMargin,
             runSpacing: LayoutTheme.slimMargin,
             children: [
-              HashTagChip('#React', isSelected: true),
-              HashTagChip('#Flutter', isSelected: false),
-              HashTagChip('#Dart', isSelected: false),
-              HashTagChip('#JavaScript', isSelected: false),
-              HashTagChip('#Next', isSelected: false),
-              HashTagChip('#NodeJS', isSelected: false),
-              HashTagChip('#TypeScript', isSelected: false),
-              HashTagChip('#NodeJS', isSelected: false),
-              HashTagChip('#TypeScript', isSelected: false),
-              OptionChip('＃ タグを探す'),
+              ...hashtagProvider.when(
+                loading: () => [],
+                data: (data) => data
+                    .map(
+                      (hashtag) => HashtagChip(hashtag.name, isSelected: false),
+                    )
+                    .toList(),
+                error: (error, stackTrace) {
+                  print(error);
+                  return [];
+                },
+              ),
+              OptionChip('＃ タグ絞り込み'),
             ],
           ),
         ),
