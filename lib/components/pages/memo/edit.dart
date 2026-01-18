@@ -40,7 +40,7 @@ class _EditMemoPageState extends ConsumerState<EditMemoPage> {
               if (title.isEmpty) {
                 title = '無題のメモ';
               }
-              if (widget.memoId >= 0) {
+              if (widget.memoId < 0) {
                 ref
                     .read(memoListViewModelProvider.notifier)
                     .create(

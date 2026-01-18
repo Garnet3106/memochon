@@ -31,13 +31,13 @@ abstract class ApiClient {
   );
 
   @POST('/memos')
-  Future<Memo> createMemos(
+  Future<Memo> createMemo(
     @Header('Authorization') String authToken,
     @Body() CreateMemoRequest body,
   );
 
   @PUT('/memos')
-  Future<Memo> updateMemos(
+  Future<Memo> updateMemo(
     @Header('Authorization') String authToken,
     @Body() UpdateMemoRequest body,
   );

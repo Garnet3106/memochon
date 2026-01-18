@@ -70,7 +70,7 @@ class _ApiClient implements ApiClient {
   }
 
   @override
-  Future<Memo> createMemos(String authToken, CreateMemoRequest body) async {
+  Future<Memo> createMemo(String authToken, CreateMemoRequest body) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{r'Authorization': authToken};
@@ -98,7 +98,7 @@ class _ApiClient implements ApiClient {
   }
 
   @override
-  Future<Memo> updateMemos(String authToken, UpdateMemoRequest body) async {
+  Future<Memo> updateMemo(String authToken, UpdateMemoRequest body) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{r'Authorization': authToken};

@@ -15,11 +15,11 @@ class MemoRepository {
 
   Future<Memo> create(CreateMemoRequest options) async {
     final authToken = await getBearerToken();
-    return await _apiClient.createMemos(authToken, options);
+    return await _apiClient.createMemo(authToken, options);
   }
 
   Future<Memo> update(UpdateMemoRequest options) async {
     final authToken = await getBearerToken();
-    return await _apiClient.updateMemos(authToken, options);
+    return await _apiClient.updateMemo(authToken, options);
   }
 }
