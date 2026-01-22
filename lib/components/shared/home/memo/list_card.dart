@@ -29,7 +29,7 @@ class MemoListCard extends StatelessWidget {
                 overflow: .ellipsis,
                 style: TextStyle(fontSize: 16, fontWeight: .bold),
               ),
-              Text(memo.contentPreview, maxLines: 2, overflow: .ellipsis),
+              Text(memo.contentPreview, maxLines: 4, overflow: .ellipsis),
               Text(
                 memo.hashtags.map((tag) => '#${tag.name}').join('  '),
                 maxLines: 1,
