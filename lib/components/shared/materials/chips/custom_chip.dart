@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:loglu/shared/constants.dart';
 
-abstract class CustomChip extends StatelessWidget {
+class CustomChip extends StatelessWidget {
   const CustomChip(
     this.label, {
     super.key,
@@ -13,6 +13,7 @@ abstract class CustomChip extends StatelessWidget {
     this.selectedBorder,
     this.labelStyle,
     this.selectedLabelStyle,
+    this.onTap,
   });
 
   final String label;
@@ -28,6 +29,8 @@ abstract class CustomChip extends StatelessWidget {
   final TextStyle? labelStyle;
   final TextStyle? selectedLabelStyle;
 
+  final Function()? onTap;
+
   @override
   Widget build(BuildContext context) {
     final brightness = Theme.of(context).brightness;
@@ -35,25 +38,30 @@ abstract class CustomChip extends StatelessWidget {
         ? selectedBorder
         : border ?? .all(color: ColorTheme.backgroundBorder(brightness));
 
-    return Container(
-      decoration: BoxDecoration(
-        color: isSelected
-            ? selectedFillColor ?? ColorTheme.foreground(brightness)
-            : fillColor ?? ColorTheme.background(brightness),
-        border: disableBorder ? null : boxBorder,
-        borderRadius: .circular(7),
-      ),
-      padding: const .symmetric(vertical: 4, horizontal: 10),
-      child: Text(
-        label,
-        style: isSelected
-            ? selectedLabelStyle ??
-                  TextStyle(
-                    color: ColorTheme.foregroundText(brightness),
-                    fontWeight: .bold,
-                  )
-            : labelStyle ??
-                  TextStyle(color: ColorTheme.backgroundTextSecond(brightness)),
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        decoration: BoxDecoration(
+          color: isSelected
+              ? selectedFillColor ?? ColorTheme.foreground(brightness)
+              : fillColor ?? ColorTheme.background(brightness),
+          border: disableBorder ? null : boxBorder,
+          borderRadius: .circular(7),
+        ),
+        padding: const .symmetric(vertical: 4, horizontal: 10),
+        child: Text(
+          label,
+          style: isSelected
+              ? selectedLabelStyle ??
+                    TextStyle(
+                      color: ColorTheme.foregroundText(brightness),
+                      fontWeight: .bold,
+                    )
+              : labelStyle ??
+                    TextStyle(
+                      color: ColorTheme.backgroundTextSecond(brightness),
+                    ),
+        ),
       ),
     );
   }

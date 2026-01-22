@@ -20,11 +20,8 @@ class ContentSearchHashtags extends ConsumerWidget {
             children: [
               ...hashtagProvider.when(
                 loading: () => [],
-                data: (data) => data
-                    .map(
-                      (hashtag) => HashtagChip(hashtag.name, isSelected: false),
-                    )
-                    .toList(),
+                data: (data) =>
+                    data.map((hashtag) => HashtagChip(hashtag)).toList(),
                 error: (error, stackTrace) {
                   print(error);
                   return [];
