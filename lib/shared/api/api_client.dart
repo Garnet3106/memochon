@@ -37,7 +37,7 @@ abstract class ApiClient {
     @Body() CreateMemoRequest body,
   );
 
-  @PUT('/memos')
+  @PATCH('/memos')
   Future<Memo> updateMemo(
     @Header('Authorization') String authToken,
     @Body() UpdateMemoRequest body,

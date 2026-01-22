@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$FetchMemoRequest {
 
- int get offset; int get limit;
+ int get offset; int get limit; String? get hashtag;
 /// Create a copy of FetchMemoRequest
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $FetchMemoRequestCopyWith<FetchMemoRequest> get copyWith => _$FetchMemoRequestCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is FetchMemoRequest&&(identical(other.offset, offset) || other.offset == offset)&&(identical(other.limit, limit) || other.limit == limit));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is FetchMemoRequest&&(identical(other.offset, offset) || other.offset == offset)&&(identical(other.limit, limit) || other.limit == limit)&&(identical(other.hashtag, hashtag) || other.hashtag == hashtag));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,offset,limit);
+int get hashCode => Object.hash(runtimeType,offset,limit,hashtag);
 
 @override
 String toString() {
-  return 'FetchMemoRequest(offset: $offset, limit: $limit)';
+  return 'FetchMemoRequest(offset: $offset, limit: $limit, hashtag: $hashtag)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $FetchMemoRequestCopyWith<$Res>  {
   factory $FetchMemoRequestCopyWith(FetchMemoRequest value, $Res Function(FetchMemoRequest) _then) = _$FetchMemoRequestCopyWithImpl;
 @useResult
 $Res call({
- int offset, int limit
+ int offset, int limit, String? hashtag
 });
 
 
@@ -65,11 +65,12 @@ class _$FetchMemoRequestCopyWithImpl<$Res>
 
 /// Create a copy of FetchMemoRequest
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? offset = null,Object? limit = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? offset = null,Object? limit = null,Object? hashtag = freezed,}) {
   return _then(_self.copyWith(
 offset: null == offset ? _self.offset : offset // ignore: cast_nullable_to_non_nullable
 as int,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int,
+as int,hashtag: freezed == hashtag ? _self.hashtag : hashtag // ignore: cast_nullable_to_non_nullable
+as String?,
   ));
 }
 
@@ -154,10 +155,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int offset,  int limit)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int offset,  int limit,  String? hashtag)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _FetchMemoRequest() when $default != null:
-return $default(_that.offset,_that.limit);case _:
+return $default(_that.offset,_that.limit,_that.hashtag);case _:
   return orElse();
 
 }
@@ -175,10 +176,10 @@ return $default(_that.offset,_that.limit);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int offset,  int limit)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int offset,  int limit,  String? hashtag)  $default,) {final _that = this;
 switch (_that) {
 case _FetchMemoRequest():
-return $default(_that.offset,_that.limit);case _:
+return $default(_that.offset,_that.limit,_that.hashtag);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -195,10 +196,10 @@ return $default(_that.offset,_that.limit);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int offset,  int limit)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int offset,  int limit,  String? hashtag)?  $default,) {final _that = this;
 switch (_that) {
 case _FetchMemoRequest() when $default != null:
-return $default(_that.offset,_that.limit);case _:
+return $default(_that.offset,_that.limit,_that.hashtag);case _:
   return null;
 
 }
@@ -210,11 +211,12 @@ return $default(_that.offset,_that.limit);case _:
 @JsonSerializable()
 
 class _FetchMemoRequest extends FetchMemoRequest {
-  const _FetchMemoRequest({required this.offset, required this.limit}): super._();
+  const _FetchMemoRequest({required this.offset, required this.limit, this.hashtag}): super._();
   factory _FetchMemoRequest.fromJson(Map<String, dynamic> json) => _$FetchMemoRequestFromJson(json);
 
 @override final  int offset;
 @override final  int limit;
+@override final  String? hashtag;
 
 /// Create a copy of FetchMemoRequest
 /// with the given fields replaced by the non-null parameter values.
@@ -229,16 +231,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _FetchMemoRequest&&(identical(other.offset, offset) || other.offset == offset)&&(identical(other.limit, limit) || other.limit == limit));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _FetchMemoRequest&&(identical(other.offset, offset) || other.offset == offset)&&(identical(other.limit, limit) || other.limit == limit)&&(identical(other.hashtag, hashtag) || other.hashtag == hashtag));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,offset,limit);
+int get hashCode => Object.hash(runtimeType,offset,limit,hashtag);
 
 @override
 String toString() {
-  return 'FetchMemoRequest(offset: $offset, limit: $limit)';
+  return 'FetchMemoRequest(offset: $offset, limit: $limit, hashtag: $hashtag)';
 }
 
 
@@ -249,7 +251,7 @@ abstract mixin class _$FetchMemoRequestCopyWith<$Res> implements $FetchMemoReque
   factory _$FetchMemoRequestCopyWith(_FetchMemoRequest value, $Res Function(_FetchMemoRequest) _then) = __$FetchMemoRequestCopyWithImpl;
 @override @useResult
 $Res call({
- int offset, int limit
+ int offset, int limit, String? hashtag
 });
 
 
@@ -266,11 +268,12 @@ class __$FetchMemoRequestCopyWithImpl<$Res>
 
 /// Create a copy of FetchMemoRequest
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? offset = null,Object? limit = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? offset = null,Object? limit = null,Object? hashtag = freezed,}) {
   return _then(_FetchMemoRequest(
 offset: null == offset ? _self.offset : offset // ignore: cast_nullable_to_non_nullable
 as int,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int,
+as int,hashtag: freezed == hashtag ? _self.hashtag : hashtag // ignore: cast_nullable_to_non_nullable
+as String?,
   ));
 }
 

@@ -7,8 +7,11 @@ part 'fetch_memo.g.dart';
 abstract class FetchMemoRequest with _$FetchMemoRequest {
   const FetchMemoRequest._();
 
-  const factory FetchMemoRequest({required int offset, required int limit}) =
-      _FetchMemoRequest;
+  const factory FetchMemoRequest({
+    required int offset,
+    required int limit,
+    @JsonKey(includeIfNull: true) String? hashtag,
+  }) = _FetchMemoRequest;
 
   factory FetchMemoRequest.fromJson(Map<String, dynamic> json) =>
       _$FetchMemoRequestFromJson(json);

@@ -105,7 +105,7 @@ class _ApiClient implements ApiClient {
     _headers.removeWhere((k, v) => v == null);
     final _data = body;
     final _options = _setStreamType<Memo>(
-      Options(method: 'PUT', headers: _headers, extra: _extra)
+      Options(method: 'PATCH', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
             '/memos',

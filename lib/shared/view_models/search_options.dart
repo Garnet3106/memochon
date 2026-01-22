@@ -10,6 +10,8 @@ final searchOptionsViewModelProvider =
 class SearchOptionsViewModel extends StateNotifier<SearchOptions> {
   SearchOptionsViewModel() : super(const SearchOptions(hashtag: null));
 
+  SearchOptions get searchOptions => state;
+
   bool match(String hashtagName) {
     return state.hashtag?.name == hashtagName;
   }

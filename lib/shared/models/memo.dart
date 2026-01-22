@@ -37,8 +37,7 @@ abstract class Memo with _$Memo {
         return preview;
       }
     } catch (error) {
-      print(error);
-      return '読み込みに失敗しました。';
+      return 'メモの形式が不正です。';
     }
   }
 }
