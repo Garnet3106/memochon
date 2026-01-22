@@ -11,19 +11,24 @@ class MemoList extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final memoListProvider = ref.watch(memoListViewModelProvider);
 
-    return memoListProvider.when(
-      data: (memos) => ListView.builder(
-        itemCount: memos.length,
-        itemBuilder: (context, index) => Padding(
-          padding: .only(bottom: LayoutTheme.margin),
-          child: MemoListCard(memo: memos[index]),
-        ),
-      ),
-      loading: () => const CircularProgressIndicator(),
-      error: (error, stackTrace) {
-        print(error);
-        return const Text('読み込めませんでした。');
+    return RefreshIndicator(
+      onRefresh: () async {
+        ref.invalidate(memoListViewModelProvider);
       },
+      child: memoListProvider.when(
+        data: (memos) => ListView.builder(
+          itemCount: memos.length,
+          itemBuilder: (context, index) => Padding(
+            padding: .only(bottom: LayoutTheme.margin),
+            child: MemoListCard(memo: memos[index]),
+          ),
+        ),
+        loading: () => const CircularProgressIndicator(),
+        error: (error, stackTrace) {
+          print(error);
+          return const Text('読み込めませんでした。');
+        },
+      ),
     );
   }
 }
