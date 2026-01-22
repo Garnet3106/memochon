@@ -10,7 +10,7 @@ abstract class FetchMemoRequest with _$FetchMemoRequest {
   const factory FetchMemoRequest({
     required int offset,
     required int limit,
-    @JsonKey(includeIfNull: true) String? hashtag,
+    @JsonKey(includeIfNull: false) String? hashtag,
   }) = _FetchMemoRequest;
 
   factory FetchMemoRequest.fromJson(Map<String, dynamic> json) =>

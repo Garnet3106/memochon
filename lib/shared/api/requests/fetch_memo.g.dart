@@ -17,5 +17,5 @@ Map<String, dynamic> _$FetchMemoRequestToJson(_FetchMemoRequest instance) =>
     <String, dynamic>{
       'offset': instance.offset,
       'limit': instance.limit,
-      'hashtag': instance.hashtag,
+      'hashtag': ?instance.hashtag,
     };
