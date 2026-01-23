@@ -5,6 +5,6 @@ GoRouter createRouter({required String initialLocation}) {
   return GoRouter(
     initialLocation: initialLocation,
     debugLogDiagnostics: true,
-    routes: [$homeRoute, $memoRoute],
+    routes: [$homeRoute, $memoRoute, $editBookmarkRoute],
   );
 }

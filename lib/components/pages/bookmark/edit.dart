@@ -1,28 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:loglu/shared/api/requests/memos.dart';
+import 'package:loglu/components/shared/bookmark/editor.dart';
+import 'package:loglu/shared/api/requests/bookmarks.dart';
 import 'package:loglu/shared/constants.dart';
 import 'package:loglu/shared/router/routes.dart';
 import 'package:loglu/components/shared/app_bar.dart';
-import 'package:loglu/components/shared/memo/editor.dart';
-import 'package:loglu/shared/view_models/memo.dart';
+import 'package:loglu/shared/view_models/bookmark.dart';
 
-class EditMemoPage extends ConsumerStatefulWidget {
-  const EditMemoPage({super.key, required this.memoId});
+class EditBookmarkPage extends ConsumerStatefulWidget {
+  const EditBookmarkPage({super.key, required this.bookmarkId});
 
-  final int memoId;
+  final int bookmarkId;
 
   @override
-  ConsumerState<EditMemoPage> createState() => _EditMemoPageState();
+  ConsumerState<EditBookmarkPage> createState() => _EditBookmarkPageState();
 }
 
-class _EditMemoPageState extends ConsumerState<EditMemoPage> {
-  late MemoEditorController _controller;
+class _EditBookmarkPageState extends ConsumerState<EditBookmarkPage> {
+  late BookmarkEditorController _controller;
 
   @override
   void initState() {
     super.initState();
-    _controller = MemoEditorController();
+    _controller = BookmarkEditorController();
   }
 
   @override
@@ -34,34 +34,28 @@ class _EditMemoPageState extends ConsumerState<EditMemoPage> {
         actions: [
           GestureDetector(
             onTap: () {
-              final content = _controller.editorContent;
-              var title = _controller.title;
-              if (title.isEmpty) {
-                title = '無題のメモ';
-              }
-              if (widget.memoId < 0) {
+              if (widget.bookmarkId < 0) {
                 ref
-                    .read(memoListViewModelProvider.notifier)
+                    .read(bookmarkListViewModelProvider.notifier)
                     .create(
-                      CreateMemoRequest(
-                        // todo: ユーザーが任意で日付設定できるようにする
-                        date: DateTime.now(),
-                        title: title,
+                      CreateBookmarkRequest(
+                        title: _controller.title,
                         hashtags: [], // fix
-                        content: content,
+                        url: _controller.url,
+                        thumbnailUrl: _controller.thumbnailUrl,
                       ),
                     );
               } else {
                 ref
-                    .read(memoListViewModelProvider.notifier)
+                    .read(bookmarkListViewModelProvider.notifier)
                     .update(
-                      UpdateMemoRequest(
-                        id: widget.memoId,
+                      UpdateBookmarkRequest(
+                        id: widget.bookmarkId,
                         editedAt: DateTime.now(),
-                        date: DateTime.now(), // fix
-                        title: title,
+                        title: _controller.title,
                         hashtags: [], // fix
-                        content: content,
+                        url: _controller.url,
+                        thumbnailUrl: _controller.thumbnailUrl,
                       ),
                     );
               }
@@ -75,11 +69,7 @@ class _EditMemoPageState extends ConsumerState<EditMemoPage> {
         ],
         leading: GestureDetector(
           onTap: () {
-            if (widget.memoId >= 0) {
-              MemoRoute(memoId: widget.memoId).go(context);
-            } else {
-              HomeRoute().go(context);
-            }
+            HomeRoute().go(context);
           },
           child: const Padding(
             padding: .symmetric(horizontal: 15, vertical: 5),
@@ -106,10 +96,9 @@ class _EditMemoPageState extends ConsumerState<EditMemoPage> {
             right: LayoutTheme.margin,
             left: LayoutTheme.margin,
           ),
-          child: MemoEditor(
+          child: BookmarkEditor(
             controller: _controller,
-            memoId: widget.memoId,
-            readOnly: false,
+            bookmarkId: widget.bookmarkId,
           ),
         ),
       ),

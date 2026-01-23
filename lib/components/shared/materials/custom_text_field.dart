@@ -9,6 +9,8 @@ class CustomTextField extends TextField {
     super.keyboardType = .text,
     String? labelText,
     super.readOnly,
+    super.onChanged,
+    super.onSubmitted,
   }) : super(
          cursorColor: ColorTheme.foreground(brightness),
          decoration: InputDecoration(

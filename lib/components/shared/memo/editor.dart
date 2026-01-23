@@ -17,19 +17,14 @@ class MemoEditorController {
   late QuillController _quillController;
   late TextEditingController _titleEditingController;
 
-  String getTitle() {
-    return _titleEditingController.text;
-  }
+  String get title => _titleEditingController.text;
 
-  void setTitle(String title) {
-    _titleEditingController.text = title;
-  }
+  set title(String title) => _titleEditingController.text = title;
 
-  String getEditorContent() {
-    return jsonEncode(_quillController.document.toDelta().toJson());
-  }
+  String get editorContent =>
+      jsonEncode(_quillController.document.toDelta().toJson());
 
-  void setEditorContent(String content) {
+  set editorContent(String content) {
     try {
       _quillController.document = Document.fromJson(jsonDecode(content));
     } catch (e) {
@@ -73,8 +68,8 @@ class _MemoEditorState extends ConsumerState<MemoEditor> {
     widget.controller._quillController.readOnly = widget.readOnly;
     if (widget.memoId >= 0) {
       memo = ref.read(memoListViewModelProvider.notifier).find(widget.memoId);
-      widget.controller.setTitle(memo!.title);
-      widget.controller.setEditorContent(memo!.content);
+      widget.controller.title = memo!.title;
+      widget.controller.editorContent = memo!.content;
     }
   }
 

@@ -6,7 +6,7 @@ part of 'routes.dart';
 // GoRouterGenerator
 // **************************************************************************
 
-List<RouteBase> get $appRoutes => [$homeRoute, $memoRoute];
+List<RouteBase> get $appRoutes => [$homeRoute, $memoRoute, $editBookmarkRoute];
 
 RouteBase get $homeRoute =>
     GoRouteData.$route(path: '/home', factory: $HomeRoute._fromState);
@@ -75,6 +75,38 @@ mixin $EditMemoRoute on GoRouteData {
   String get location => GoRouteData.$location(
     '/memo/edit',
     queryParams: {'memo-id': _self.memoId.toString()},
+  );
+
+  @override
+  void go(BuildContext context) => context.go(location);
+
+  @override
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  @override
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  @override
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $editBookmarkRoute => GoRouteData.$route(
+  path: '/bookmark/edit',
+  factory: $EditBookmarkRoute._fromState,
+);
+
+mixin $EditBookmarkRoute on GoRouteData {
+  static EditBookmarkRoute _fromState(GoRouterState state) => EditBookmarkRoute(
+    bookmarkId: int.parse(state.uri.queryParameters['bookmark-id']!),
+  );
+
+  EditBookmarkRoute get _self => this as EditBookmarkRoute;
+
+  @override
+  String get location => GoRouteData.$location(
+    '/bookmark/edit',
+    queryParams: {'bookmark-id': _self.bookmarkId.toString()},
   );
 
   @override

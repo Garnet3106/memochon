@@ -18,7 +18,12 @@ class FloatingContextMenu extends StatelessWidget {
               spacing: 6,
               children: [
                 FloatingContextMenuOption(label: 'メディア', onTap: () {}),
-                FloatingContextMenuOption(label: 'ブックマーク', onTap: () {}),
+                FloatingContextMenuOption(
+                  label: 'ブックマーク',
+                  onTap: () {
+                    EditBookmarkRoute(bookmarkId: -1).go(context);
+                  },
+                ),
                 FloatingContextMenuOption(
                   label: 'メモ',
                   onTap: () {

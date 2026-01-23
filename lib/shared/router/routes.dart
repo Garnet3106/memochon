@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:loglu/components/pages/bookmark/edit.dart';
 import 'package:loglu/components/pages/home.dart';
 import 'package:loglu/components/pages/memo.dart';
 import 'package:loglu/components/pages/memo/edit.dart';
@@ -32,10 +33,22 @@ class MemoRoute extends GoRouteData with $MemoRoute {
 class EditMemoRoute extends GoRouteData with $EditMemoRoute {
   const EditMemoRoute({required this.memoId});
 
-  /// 新規作成メモの場合は -1 を指定すること
+  /// 新規作成の場合は -1 を指定すること
   final int memoId;
 
   @override
   Widget build(BuildContext context, GoRouterState state) =>
       EditMemoPage(memoId: memoId);
+}
+
+@TypedGoRoute<EditBookmarkRoute>(path: '/bookmark/edit')
+class EditBookmarkRoute extends GoRouteData with $EditBookmarkRoute {
+  const EditBookmarkRoute({required this.bookmarkId});
+
+  /// 新規作成の場合は -1 を指定すること
+  final int bookmarkId;
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) =>
+      EditBookmarkPage(bookmarkId: bookmarkId);
 }
