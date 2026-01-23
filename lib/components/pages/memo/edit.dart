@@ -5,6 +5,7 @@ import 'package:loglu/shared/constants.dart';
 import 'package:loglu/shared/router/routes.dart';
 import 'package:loglu/components/shared/app_bar.dart';
 import 'package:loglu/components/shared/memo/editor.dart';
+import 'package:loglu/shared/view_models/hashtag.dart';
 import 'package:loglu/shared/view_models/memo.dart';
 
 class EditMemoPage extends ConsumerStatefulWidget {
@@ -65,6 +66,7 @@ class _EditMemoPageState extends ConsumerState<EditMemoPage> {
                       ),
                     );
               }
+              ref.invalidate(hashtagListViewModelProvider);
               HomeRoute().go(context);
             },
             child: const Padding(

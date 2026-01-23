@@ -6,6 +6,7 @@ import 'package:loglu/shared/constants.dart';
 import 'package:loglu/shared/router/routes.dart';
 import 'package:loglu/components/shared/app_bar.dart';
 import 'package:loglu/shared/view_models/bookmark.dart';
+import 'package:loglu/shared/view_models/hashtag.dart';
 
 class EditBookmarkPage extends ConsumerStatefulWidget {
   const EditBookmarkPage({super.key, required this.bookmarkId});
@@ -59,6 +60,7 @@ class _EditBookmarkPageState extends ConsumerState<EditBookmarkPage> {
                       ),
                     );
               }
+              ref.invalidate(hashtagListViewModelProvider);
               HomeRoute().go(context);
             },
             child: const Padding(
