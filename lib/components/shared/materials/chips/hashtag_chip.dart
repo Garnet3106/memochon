@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:loglu/components/shared/materials/chips/custom_chip.dart';
 import 'package:loglu/shared/models/hashtag.dart';
+import 'package:loglu/shared/view_models/bookmark.dart';
 import 'package:loglu/shared/view_models/memo.dart';
 import 'package:loglu/shared/view_models/search_options.dart';
 
@@ -23,6 +24,9 @@ class HashtagChip extends ConsumerWidget {
         searchOptionsProviderNotifier.toggleHashtag(hashtag);
         ref
             .read(memoListViewModelProvider.notifier)
+            .fetch(searchOptionsProviderNotifier.searchOptions);
+        ref
+            .read(bookmarkListViewModelProvider.notifier)
             .fetch(searchOptionsProviderNotifier.searchOptions);
       },
     );

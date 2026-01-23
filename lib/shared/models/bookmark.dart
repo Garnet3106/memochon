@@ -9,13 +9,13 @@ abstract class Bookmark with _$Bookmark {
   const Bookmark._();
 
   const factory Bookmark({
-    required String id,
+    required int id,
     required DateTime createdAt,
     required DateTime editedAt,
     required String title,
-    required String url,
-    required String thumbnailUrl,
     required List<Hashtag> hashtags,
+    required String url,
+    String? thumbnailUrl,
   }) = _Bookmark;
 
   factory Bookmark.fromJson(Map<String, dynamic> json) =>

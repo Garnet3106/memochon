@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:loglu/shared/api/requests/create_memo.dart';
-import 'package:loglu/shared/api/requests/update_memo.dart';
+import 'package:loglu/shared/api/requests/memos.dart';
 import 'package:loglu/shared/constants.dart';
 import 'package:loglu/shared/router/routes.dart';
 import 'package:loglu/components/shared/app_bar.dart';

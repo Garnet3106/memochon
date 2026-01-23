@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
-import 'package:loglu/shared/api/requests/create_memo.dart';
-import 'package:loglu/shared/api/requests/fetch_memo.dart';
-import 'package:loglu/shared/api/requests/update_memo.dart';
+import 'package:loglu/shared/api/requests/bookmarks.dart';
+import 'package:loglu/shared/api/requests/memos.dart';
+import 'package:loglu/shared/models/bookmark.dart';
 import 'package:loglu/shared/models/hashtag.dart';
 import 'package:loglu/shared/models/memo.dart';
 import 'package:retrofit/retrofit.dart';
@@ -41,6 +41,24 @@ abstract class ApiClient {
   Future<Memo> updateMemo(
     @Header('Authorization') String authToken,
     @Body() UpdateMemoRequest body,
+  );
+
+  @GET('/bookmarks')
+  Future<List<Bookmark>> getBookmarks(
+    @Header('Authorization') String authToken,
+    @Body() FetchBookmarkRequest body,
+  );
+
+  @POST('/bookmarks')
+  Future<Bookmark> createBookmark(
+    @Header('Authorization') String authToken,
+    @Body() CreateBookmarkRequest body,
+  );
+
+  @PATCH('/bookmarks')
+  Future<Bookmark> updateBookmark(
+    @Header('Authorization') String authToken,
+    @Body() UpdateBookmarkRequest body,
   );
 
   @GET('/hashtags')

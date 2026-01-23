@@ -1,8 +1,6 @@
 import 'package:collection/collection.dart';
 import 'package:hooks_riverpod/legacy.dart';
-import 'package:loglu/shared/api/requests/create_memo.dart';
-import 'package:loglu/shared/api/requests/fetch_memo.dart';
-import 'package:loglu/shared/api/requests/update_memo.dart';
+import 'package:loglu/shared/api/requests/memos.dart';
 import 'package:loglu/shared/models/memo.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:loglu/shared/models/search_options.dart';

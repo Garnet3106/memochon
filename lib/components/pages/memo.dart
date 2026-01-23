@@ -4,6 +4,7 @@ import 'package:loglu/shared/constants.dart';
 import 'package:loglu/shared/router/routes.dart';
 import 'package:loglu/components/shared/app_bar.dart';
 import 'package:loglu/components/shared/memo/editor.dart';
+import 'package:loglu/shared/view_models/bookmark.dart';
 import 'package:loglu/shared/view_models/hashtag.dart';
 import 'package:loglu/shared/view_models/memo.dart';
 
@@ -45,6 +46,7 @@ class _MemoPageState extends ConsumerState<MemoPage> {
         leading: GestureDetector(
           onTap: () {
             ref.invalidate(memoListViewModelProvider);
+            ref.invalidate(bookmarkListViewModelProvider);
             ref.invalidate(hashtagListViewModelProvider);
             HomeRoute().go(context);
           },

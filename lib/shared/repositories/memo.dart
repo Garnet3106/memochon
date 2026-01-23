@@ -1,7 +1,5 @@
 import 'package:loglu/shared/api/api_client.dart';
-import 'package:loglu/shared/api/requests/create_memo.dart';
-import 'package:loglu/shared/api/requests/fetch_memo.dart';
-import 'package:loglu/shared/api/requests/update_memo.dart';
+import 'package:loglu/shared/api/requests/memos.dart';
 import 'package:loglu/shared/firebase.dart';
 import 'package:loglu/shared/models/memo.dart';
 
