@@ -8,7 +8,12 @@ class MemoRepository {
 
   Future<List<Memo>> fetch(FetchMemoRequest options) async {
     final authToken = await getBearerToken();
-    return await _apiClient.getMemos(authToken, options);
+    return await _apiClient.getMemos(
+      authToken,
+      options.offset,
+      options.limit,
+      options.hashtag,
+    );
   }
 
   Future<Memo> create(CreateMemoRequest options) async {

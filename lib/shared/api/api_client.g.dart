@@ -40,12 +40,22 @@ class _ApiClient implements ApiClient {
   }
 
   @override
-  Future<List<Memo>> getMemos(String authToken, FetchMemoRequest body) async {
+  Future<List<Memo>> getMemos(
+    String authToken,
+    int offset,
+    int limit,
+    String? hashtag,
+  ) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'offset': offset,
+      r'limit': limit,
+      r'hashtag': hashtag,
+    };
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{r'Authorization': authToken};
     _headers.removeWhere((k, v) => v == null);
-    final _data = body;
+    const Map<String, dynamic>? _data = null;
     final _options = _setStreamType<List<Memo>>(
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
@@ -128,13 +138,20 @@ class _ApiClient implements ApiClient {
   @override
   Future<List<Bookmark>> getBookmarks(
     String authToken,
-    FetchBookmarkRequest body,
+    int offset,
+    int limit,
+    String? hashtag,
   ) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'offset': offset,
+      r'limit': limit,
+      r'hashtag': hashtag,
+    };
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{r'Authorization': authToken};
     _headers.removeWhere((k, v) => v == null);
-    final _data = body;
+    const Map<String, dynamic>? _data = null;
     final _options = _setStreamType<List<Bookmark>>(
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(

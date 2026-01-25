@@ -8,7 +8,12 @@ class BookmarkRepository {
 
   Future<List<Bookmark>> fetch(FetchBookmarkRequest options) async {
     final authToken = await getBearerToken();
-    return await _apiClient.getBookmarks(authToken, options);
+    return await _apiClient.getBookmarks(
+      authToken,
+      options.offset,
+      options.limit,
+      options.hashtag,
+    );
   }
 
   Future<Bookmark> create(CreateBookmarkRequest options) async {

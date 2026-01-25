@@ -11,7 +11,7 @@ part 'api_client.g.dart';
 final dio = Dio(
   BaseOptions(
     // todo: .env に書き出す
-    baseUrl: 'http://localhost:8080',
+    baseUrl: 'https://loglu-api-prod-210863920270.asia-northeast1.run.app',
     connectTimeout: const Duration(seconds: 10),
     receiveTimeout: const Duration(seconds: 10),
     headers: {'Content-Type': 'application/json'},
@@ -28,7 +28,9 @@ abstract class ApiClient {
   @GET('/memos')
   Future<List<Memo>> getMemos(
     @Header('Authorization') String authToken,
-    @Body() FetchMemoRequest body,
+    @Query('offset') int offset,
+    @Query('limit') int limit,
+    @Query('hashtag') String? hashtag,
   );
 
   @POST('/memos')
@@ -46,7 +48,9 @@ abstract class ApiClient {
   @GET('/bookmarks')
   Future<List<Bookmark>> getBookmarks(
     @Header('Authorization') String authToken,
-    @Body() FetchBookmarkRequest body,
+    @Query('offset') int offset,
+    @Query('limit') int limit,
+    @Query('hashtag') String? hashtag,
   );
 
   @POST('/bookmarks')
